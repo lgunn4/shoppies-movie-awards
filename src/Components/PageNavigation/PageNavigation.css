@@ -1,0 +1,22 @@
+.pageHeaderRow{
+    color: white;
+    padding: 2vh;
+    width:100%;
+    text-align: center;
+}
+
+.pageHeaderRow h2 {
+    color: white;
+}
+
+.fa-trophy {
+    color: white;
+    height: 100%;
+    vertical-align: middle;
+    font-size: 2rem;
+}
+
+.ant-badge {
+    height: 100%;
+
+}
