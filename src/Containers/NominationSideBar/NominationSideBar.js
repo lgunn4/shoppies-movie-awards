@@ -4,7 +4,9 @@ import NominationSideBar from "../../Components/NominationSideBar/NominationSide
 import {setSideBarClosed} from "../../Redux/Actions";
 
 const mapStateToProps = (state) => {
-    return { sideBarOpen: state.SideBarOpen};
+    return {
+        sideBarOpen: state.SideBarOpen,
+    };
 };
 
 const mapdispatchToProps = (dispatch) => {

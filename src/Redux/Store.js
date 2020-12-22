@@ -6,9 +6,10 @@ import {createLogger} from "redux-logger";
 
 const logger = createLogger({ collapsed: true });
 
-export default function configureAppStore() {
+export default function configureAppStore(preloadedState) {
     return configureStore({
         reducer: reducers,
         middleware: applyMiddleware(thunk, logger),
+        preloadedState,
     });
 }

@@ -8,9 +8,9 @@ export const addNoination = (id, content) => ({
     }
 });
 
-export const removeNomination = id => ({
+export const removeNomination = imdbID => ({
     type: REMOVE_NOMINATION,
-    payload: { id }
+    payload: { imdbID }
 });
 
 export const setSideBarOpen = () => ({ type: SET_SIDE_BAR_OPEN });

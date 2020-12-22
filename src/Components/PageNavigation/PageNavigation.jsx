@@ -4,10 +4,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrophy} from "@fortawesome/free-solid-svg-icons";
 import "./PageNavigation.css";
 import {Badge} from "antd";
-import {nominationList} from "../../Constants/Constants";
 
 
-function PageNavigation({setSideBarOpen}) {
+function PageNavigation({setSideBarOpen, nominations}) {
     return (
         <div>
             <Navbar className="pageHeader" bg="dark" variant="dark">
@@ -17,7 +16,7 @@ function PageNavigation({setSideBarOpen}) {
                     </Col>
 
                     <Col md={1} sm={4} xs={2}>
-                            <Badge count={nominationList.length} offset={[3, -3]} onClick={() => setSideBarOpen()}>
+                            <Badge count={nominations.length} offset={[3, -3]} onClick={() => setSideBarOpen()}>
                                 <FontAwesomeIcon icon={faTrophy} />
                             </Badge>
                     </Col>

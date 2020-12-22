@@ -5,23 +5,20 @@ const initialState = [];
 export default function Nominations(state = initialState, action) {
     switch (action.type) {
         case ADD_NOMINATION: {
-            const { id, content } = action.payload;
+            const { content } = action.payload;
             return {
                 ...state,
                 nominations: {
                     ...state.nominations,
-                    [id]: {
+                    [content.imdbID]: {
                         content,
                     }
                 }
             };
         }
         case REMOVE_NOMINATION: {
-            const { id } = action.payload;
-            return {
-                ...state,
-                [id] : null,
-            };
+            const { imdbID } = action.payload;
+            return state.filter(nomination => nomination.imdbID !== imdbID);
         }
         default:
             return state;

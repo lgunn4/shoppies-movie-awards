@@ -1,19 +1,18 @@
 import React from 'react';
-import {nominationList} from "../../Constants/Constants";
 import {Col, Row} from "react-bootstrap";
 import "./NominationSideBarContent.css";
 import {Button} from "antd";
 
 
-function NominationSideBarContent({setSideBarClosed}) {
-    const nominations = nominationList.map((nomination, index) => {
+function NominationSideBarContent({setSideBarClosed, removeNomination, nominations}) {
+    const nominationList = nominations.map((nomination) => {
         return (
-            <Row key={`nomination-${index}`}>
+            <Row key={`nomination-${nomination.imdbID}`}>
                 <Col xs={1}>
-                    <Button type="text" danger>X</Button>
+                    <Button type="text" danger onClick={() => removeNomination(nomination.imdbID)}>X</Button>
                 </Col>
                 <Col xs={11}>
-                    <p>{nomination.title}</p>
+                    <p>{nomination.Title}</p>
                 </Col>
             </Row>
         )
@@ -33,7 +32,7 @@ function NominationSideBarContent({setSideBarClosed}) {
                 </Col>
             </Row>
 
-            {nominations}
+            {nominationList}
         </div>
     );
 
