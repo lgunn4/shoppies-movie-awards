@@ -5,7 +5,7 @@ import NominationSideBarContent from "./NominationSideBarContent";
 function NominationSideBar({children, sideBarOpen, setSideBarOpen}){
     return(
         <Sidebar
-            sidebar={NominationSideBarContent()}
+            sidebar={(<NominationSideBarContent setSideBarOpen={setSideBarOpen}/>)}
             open={sideBarOpen}
             onSetOpen={() => setSideBarOpen(false)}
             styles={{ sidebar: { background: "white", width: "50vh"} }}
