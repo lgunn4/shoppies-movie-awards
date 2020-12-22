@@ -3,11 +3,11 @@ import {Container} from "react-bootstrap";
 import PageNavigation from "../PageNavigation/PageNavigation";
 import "./Layout.css";
 
-function Layout({children}) {
+function Layout({children, setSideBarOpen}) {
     return (
         <Container fluid>
-            <PageNavigation/>
-            <div clasName="pageBody">
+            <PageNavigation setSideBarOpen={setSideBarOpen}/>
+            <div ClassName="pageBody">
                 {children}
             </div>
         </Container>
