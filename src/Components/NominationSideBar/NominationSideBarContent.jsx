@@ -5,10 +5,10 @@ import "./NominationSideBarContent.css";
 import {Button} from "antd";
 
 
-function NominationSideBarContent({setSideBarOpen}) {
+function NominationSideBarContent({setSideBarClosed}) {
     const nominations = nominationList.map((nomination, index) => {
         return (
-            <Row className={`nomination-${index}`}>
+            <Row key={`nomination-${index}`}>
                 <Col xs={1}>
                     <Button type="text" danger>X</Button>
                 </Col>
@@ -24,7 +24,7 @@ function NominationSideBarContent({setSideBarOpen}) {
             <br/>
             <Row>
                 <Col xs={{span: 1, offset: 10}}>
-                    <Button type="text" onClick={() => setSideBarOpen(false)}>X</Button>
+                    <Button type="text" onClick={() => setSideBarClosed()}>X</Button>
                 </Col>
             </Row>
             <Row>

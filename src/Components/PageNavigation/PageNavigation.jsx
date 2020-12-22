@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Button, Col, Navbar, Row} from "react-bootstrap";
+import React from 'react';
+import {Col, Navbar, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrophy} from "@fortawesome/free-solid-svg-icons";
 import "./PageNavigation.css";
@@ -17,11 +17,9 @@ function PageNavigation({setSideBarOpen}) {
                     </Col>
 
                     <Col md={1} sm={4} xs={2}>
-
-                            <Badge count={nominationList.length} offset={[3, -3]} onClick={() => setSideBarOpen(true)}>
+                            <Badge count={nominationList.length} offset={[3, -3]} onClick={() => setSideBarOpen()}>
                                 <FontAwesomeIcon icon={faTrophy} />
                             </Badge>
-
                     </Col>
 
                 </Row>
