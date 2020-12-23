@@ -22,10 +22,10 @@ function SearchPageResults({searchResults, nominations, addNomination}) {
        return(
            <div key={movieResult.imdbID}>
                <Row>
-                   <Col xs={2}>
+                   <Col md={2}>
                        {posterImage}
                    </Col>
-                   <Col xs={10}>
+                   <Col md={10}>
                        <h5>{movieResult.Title}</h5>
                        <p>{movieResult.Year}</p>
                        {nominateButton}
