@@ -27,6 +27,7 @@ const preloadedState = {
 
 const store = configureAppStore(preloadedState);
 
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

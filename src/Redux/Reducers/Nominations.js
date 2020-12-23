@@ -8,12 +8,7 @@ export default function Nominations(state = initialState, action) {
             const { content } = action.payload;
             return {
                 ...state,
-                nominations: {
-                    ...state.nominations,
-                    [content.imdbID]: {
-                        content,
-                    }
-                }
+                content,
             };
         }
         case REMOVE_NOMINATION: {

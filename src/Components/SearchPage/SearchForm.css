@@ -1,0 +1,12 @@
+.search-form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.search-form form {
+    margin: 0 auto;
+}
+
+.search-form button {
+    width: 100%;
+}

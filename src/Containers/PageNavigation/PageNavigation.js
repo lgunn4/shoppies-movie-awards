@@ -5,7 +5,6 @@ import {setSideBarOpen} from "../../Redux/Actions";
 
 const mapStateToProps = (state) => {
     return {
-        sideBarOpen: state.SideBarOpen,
         nominations: state.Nominations,
     };
 };

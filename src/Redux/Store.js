@@ -1,15 +1,16 @@
-import {configureStore} from '@reduxjs/toolkit'
-import {applyMiddleware} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import {reducers} from "./Reducers";
-import thunk from 'redux-thunk';
+import thunk from "redux-thunk";
 import {createLogger} from "redux-logger";
+import {composeWithDevTools} from "redux-devtools-extension";
 
 const logger = createLogger({ collapsed: true });
 
 export default function configureAppStore(preloadedState) {
-    return configureStore({
-        reducer: reducers,
-        middleware: applyMiddleware(thunk, logger),
+    return createStore(
+        reducers,
         preloadedState,
-    });
+        composeWithDevTools(applyMiddleware(thunk, logger)),
+
+    );
 }
