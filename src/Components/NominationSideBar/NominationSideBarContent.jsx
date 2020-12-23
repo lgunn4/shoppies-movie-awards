@@ -20,7 +20,6 @@ function NominationSideBarContent({setSideBarClosed, removeNomination, nominatio
 
     return(
         <div className="nomination-side-bar-content">
-            <br/>
             <Row>
                 <Col xs={{span: 1, offset: 10}}>
                     <Button type="text" onClick={() => setSideBarClosed()}>X</Button>

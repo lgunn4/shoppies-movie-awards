@@ -5,10 +5,9 @@ import {
     SET_SIDE_BAR_OPEN
 } from "./ActionTypes";
 
-export const addNomination = (id, content) => ({
+export const addNomination = (content) => ({
     type: ADD_NOMINATION,
     payload: {
-        id: id,
         content
     }
 });

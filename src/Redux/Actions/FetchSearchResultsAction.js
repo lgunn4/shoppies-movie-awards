@@ -6,19 +6,25 @@ import {
 } from "../ActionTypes";
 import {getOMDBResults} from "../Service/SearchResultsService";
 
-export const fetchSearchResults = (searchText) => (dispatch) => {
+export const fetchSearchResults = (searchText, pageNumber) => (dispatch) => {
     dispatch({
         type: FETCH_SEARCH_RESULTS_STARTED,
     });
-    getOMDBResults(searchText).then(response => {
+    getOMDBResults(searchText, pageNumber).then(response => {
         dispatch({
             type: FETCH_SEARCH_RESULTS_SUCCESS,
-            payload: response,
+            payload: {
+                searchCriteria: searchText,
+                response
+            },
         })
     }).catch((error) => {
         dispatch({
             type: FETCH_SEARCH_RESULTS_FAILED,
-            payload: error,
+            payload: {
+                searchCriteria: searchText,
+                error
+            },
         });
     }).finally(() => {
         dispatch({

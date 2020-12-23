@@ -6,11 +6,9 @@ import {composeWithDevTools} from "redux-devtools-extension";
 
 const logger = createLogger({ collapsed: true });
 
-export default function configureAppStore(preloadedState) {
+export default function configureAppStore() {
     return createStore(
         reducers,
-        preloadedState,
         composeWithDevTools(applyMiddleware(thunk, logger)),
-
     );
 }

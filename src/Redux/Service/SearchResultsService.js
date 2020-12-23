@@ -1,12 +1,17 @@
 import {API_URL} from "../../Constants/Constants";
 
-export const getOMDBResults = (searchText) => {
+export const getOMDBResults = (searchText, pageNumber) => {
     return fetch(
-        encodeURI(`${API_URL}&s=${searchText}`),
+        encodeURI(`${API_URL}&type=movie&s=${searchText}&page=${pageNumber}`),
         {
             method:      'GET',
         },
     ).then(response => response.json()
-    ).then(data => data);
-
+    ).then(data => {
+        if (data.Response === "False") {
+            throw Error(data.Error);
+        } else {
+            return data;
+        }
+    });
 };

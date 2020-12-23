@@ -6,10 +6,10 @@ export default function Nominations(state = initialState, action) {
     switch (action.type) {
         case ADD_NOMINATION: {
             const { content } = action.payload;
-            return {
+            return [
                 ...state,
                 content,
-            };
+            ];
         }
         case REMOVE_NOMINATION: {
             const { imdbID } = action.payload;

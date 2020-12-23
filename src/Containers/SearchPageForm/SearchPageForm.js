@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import SearchForm from "../../Components/SearchPage/SearchForm";
+import SearchForm from "../../Components/SearchPage/SearchForm/SearchForm";
 import {fetchSearchResults} from "../../Redux/Actions/FetchSearchResultsAction";
 
 

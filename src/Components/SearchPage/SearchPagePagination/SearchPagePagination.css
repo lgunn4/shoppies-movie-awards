@@ -1,0 +1,13 @@
+.search-results-pagination {
+    color: black;
+}
+
+.pagination ul {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.pagination li {
+    display: inline-block;
+}

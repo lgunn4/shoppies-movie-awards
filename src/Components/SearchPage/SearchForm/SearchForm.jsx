@@ -11,9 +11,7 @@ function SearchForm({fetchSearchResults}) {
             <Jumbotron>
                 <Form onSubmit={(e) => {
                     e.preventDefault();
-                    fetchSearchResults(searchText);
-
-
+                    fetchSearchResults(searchText, 1);
                 }}>
                     <Form.Row>
                         <Col xs="10">

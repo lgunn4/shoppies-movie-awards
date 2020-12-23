@@ -9,7 +9,7 @@ import {Badge} from "antd";
 function PageNavigation({setSideBarOpen, nominations}) {
     return (
         <div>
-            <Navbar className="pageHeader" bg="dark" variant="dark">
+            <Navbar className="pageHeader" bg="dark" variant="dark" fixed="top">
                 <Row className="pageHeaderRow">
                     <Col md={{span: 10, offset: 1}} sm={8} xs={10}>
                         <h2>The Shoppies</h2>
