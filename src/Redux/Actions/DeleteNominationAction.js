@@ -4,7 +4,7 @@ import {
     DELETE_NOMINATIONS_STARTED,
     DELETE_NOMINATIONS_SUCCESS,
 } from "../ActionTypes";
-import {deleteAPINomination, postNomination} from "../Service/NominationsService";
+import {deleteAPINomination} from "../Service/NominationsService";
 
 export const deleteNomination = (strapiID) => (dispatch) => {
     dispatch({

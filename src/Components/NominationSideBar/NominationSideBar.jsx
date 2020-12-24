@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Sidebar from "react-sidebar";
 import NominationSideBarContent from "../../Containers/NominationSideBarContent/NominationSideBarContent";
 import LoadableNominations from "../../Containers/LoadableNominations/LoadableNominations";
 
 function NominationSideBar({children, sideBarOpen, setSideBarClosed, fetchNominations}){
-    fetchNominations();
+    useEffect(() => {
+        fetchNominations();
+    }, );
 
     const sideBarContent = (
         <LoadableNominations>

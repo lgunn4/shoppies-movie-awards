@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {removeNomination, setSideBarClosed} from "../../Redux/Actions";
+import {setSideBarClosed} from "../../Redux/Actions";
 import NominationSideBarContent from "../../Components/NominationSideBar/NominationSideBarContent";
 import {deleteNomination} from "../../Redux/Actions/DeleteNominationAction";
 
