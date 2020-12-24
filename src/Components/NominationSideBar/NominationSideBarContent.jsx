@@ -4,12 +4,12 @@ import "./NominationSideBarContent.css";
 import {Button} from "antd";
 
 
-function NominationSideBarContent({setSideBarClosed, removeNomination, nominations}) {
+function NominationSideBarContent({setSideBarClosed, deleteNomination, nominations}) {
     const nominationList = nominations.map((nomination) => {
         return (
             <Row key={`nomination-${nomination.imdbID}`}>
                 <Col xs={1}>
-                    <Button type="text" danger onClick={() => removeNomination(nomination.imdbID)}>X</Button>
+                    <Button type="text" danger onClick={() => deleteNomination(nomination.StrapiID)}>X</Button>
                 </Col>
                 <Col xs={11}>
                     <p>{nomination.Title}</p>

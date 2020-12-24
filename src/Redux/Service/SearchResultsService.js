@@ -1,8 +1,8 @@
-import {API_URL} from "../../Constants/Constants";
+import {OMDB_API_URL} from "../../Constants/Constants";
 
 export const getOMDBResults = (searchText, pageNumber) => {
     return fetch(
-        encodeURI(`${API_URL}&type=movie&s=${searchText}&page=${pageNumber}`),
+        encodeURI(`${OMDB_API_URL}&type=movie&s=${searchText}&page=${pageNumber}`),
         {
             method:      'GET',
         },

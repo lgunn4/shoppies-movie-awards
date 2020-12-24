@@ -1,12 +1,12 @@
 import {connect} from "react-redux";
 import SearchPageResults from "../../Components/SearchPage/SearchPageResults/SearchPageResults";
 import {bindActionCreators} from "redux";
-import {addNomination} from "../../Redux/Actions";
+import {addNomination} from "../../Redux/Actions/AddNominationAction";
 
 const mapStateToProps = (state) => {
     return {
         searchResults: state.SearchResults,
-        nominations: state.Nominations,
+        nominations: state.Nominations.nominations,
         searchCriteria: state.SearchCriteria
     };
 };
