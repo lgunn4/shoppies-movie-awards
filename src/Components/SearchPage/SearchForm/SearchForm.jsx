@@ -34,7 +34,6 @@ function SearchForm({fetchSearchResults}) {
                     </Form.Row>
                 </Form>
             </Jumbotron>
-
         </div>
     );
 }

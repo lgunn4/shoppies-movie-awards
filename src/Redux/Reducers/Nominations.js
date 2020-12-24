@@ -15,6 +15,7 @@ const initialState = {
     isLoading: false,
     error: null,
     nominations: [],
+    loaded: false,
 };
 
 export default function Nominations(state = initialState, action) {
@@ -31,7 +32,8 @@ export default function Nominations(state = initialState, action) {
             return {
                 ...state,
                 nominations: action.payload.response.map(nomination => ({...nomination, StrapiID: nomination.id, id:null})),
-                error: null
+                error: null,
+                loaded: true,
             };
         }
         case FETCH_NOMINATIONS_FAILED: {

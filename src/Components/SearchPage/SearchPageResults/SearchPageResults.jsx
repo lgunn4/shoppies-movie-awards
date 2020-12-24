@@ -40,7 +40,10 @@ function SearchPageResults({searchResults, nominations, addNomination}) {
     });
 
     const resultsTitle = searchResults.searchCriteria === "" ? null :
-        (<h3>Search Results for: "{searchResults.searchCriteria}"</h3>);
+        (<div>
+            <h3>Displaying Results for: "{searchResults.searchCriteria}"</h3>
+            <p>{searchResults.totalResults} results returned</p>
+        </div>);
 
     return(
         <div className="search-page-results">

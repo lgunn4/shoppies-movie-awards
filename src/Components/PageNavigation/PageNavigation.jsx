@@ -20,7 +20,6 @@ function PageNavigation({setSideBarOpen, nominations}) {
                                 <FontAwesomeIcon icon={faTrophy} />
                             </Badge>
                     </Col>
-
                 </Row>
             </Navbar>
         </div>
