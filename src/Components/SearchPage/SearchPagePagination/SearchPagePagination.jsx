@@ -30,8 +30,6 @@ function SearchPagePagination({searchResults, fetchSearchResults}) {
     } else {
         return null;
     }
-
-
 }
 
 export default SearchPagePagination;

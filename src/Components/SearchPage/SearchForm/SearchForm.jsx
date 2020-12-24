@@ -5,14 +5,15 @@ import "./SearchForm.css";
 
 function SearchForm({fetchSearchResults}) {
     const [searchText, changeSearchText] = useState("");
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+        fetchSearchResults(searchText, 1);
+    };
 
     return (
         <div className="search-form">
             <Jumbotron>
-                <Form onSubmit={(e) => {
-                    e.preventDefault();
-                    fetchSearchResults(searchText, 1);
-                }}>
+                <Form onSubmit={onFormSubmit} >
                     <Form.Row>
                         <Col xs="10">
                             <Form.Label htmlFor="inlineFormInput" srOnly>

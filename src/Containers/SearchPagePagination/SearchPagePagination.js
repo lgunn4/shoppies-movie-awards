@@ -7,8 +7,6 @@ const mapStateToProps = (state) => {
         return {
             searchResults: state.SearchResults,
         };
-
-
 };
 
 const mapdispatchToProps = (dispatch) => {
