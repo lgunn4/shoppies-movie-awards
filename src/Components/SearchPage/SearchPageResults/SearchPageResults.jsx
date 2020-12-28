@@ -1,24 +1,30 @@
 import React from 'react';
-import {Button, Col, Image, Row} from 'react-bootstrap';
+import {Button, Col, Image, Row, Spinner} from 'react-bootstrap';
 
 import "./SearchPageResults.css";
 import SearchPagePagination from "../../../Containers/SearchPagePagination/SearchPagePagination";
+import SearchResultButton from "../../SearchResultButton/SearchResultButton";
 
 
-function SearchPageResults({searchResults, nominations, addNomination}) {
+function SearchPageResults({searchResults, nominations, addNomination, uiLoadingActions}) {
+
 
     const movieResultRows = searchResults.error !== null ?
         (<p>No results match this search criteria!</p>) :
         searchResults.results.map(movieResult => {
-        const nominateButton =
-            nominations.some(nomination => nomination.imdbID === movieResult.imdbID) ?
-            (<Button disabled variant="disabled">Nominated</Button>) :
-            (<Button variant="success" onClick={() => addNomination(movieResult)}>Nominate</Button>);
+            const isLoading = uiLoadingActions.loading.some(loadingAction => loadingAction.id === movieResult.imdbID);
+            const isNominated = nominations.some(nomination => nomination.imdbID === movieResult.imdbID);
+            const nominateButton = (
+                <SearchResultButton
+                    movieResult={movieResult}
+                    addNomination={addNomination}
+                    isLoading={isLoading}
+                    isNominated={isNominated}
+                />);
 
         const posterImage = movieResult.Poster === "N/A" ?
             (<Image src="poster-not-available.jpg" thumbnail />) :
             (<Image src={movieResult.Poster} thumbnail/>);
-
        return(
            <div key={movieResult.imdbID}>
                <Row>

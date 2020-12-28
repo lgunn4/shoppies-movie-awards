@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
     return {
         searchResults: state.SearchResults,
         nominations: state.Nominations.nominations,
-        searchCriteria: state.SearchCriteria
+        searchCriteria: state.SearchCriteria,
+        uiLoadingActions: state.uiReducer,
     };
 };
 

@@ -1,14 +1,10 @@
 import React from 'react';
 import Sidebar from "react-sidebar";
 import NominationSideBarContent from "../../Containers/NominationSideBarContent/NominationSideBarContent";
-import LoadableNominations from "../../Containers/LoadableNominations/LoadableNominations";
 
 function NominationSideBar({children, sideBarOpen, setSideBarClosed}){
-    const sideBarContent = (
-        <LoadableNominations>
-            <NominationSideBarContent />
-        </LoadableNominations>
-    );
+    const sideBarContent = (<NominationSideBarContent />);
+
 
     return(
         <Sidebar

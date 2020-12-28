@@ -5,7 +5,7 @@ import {setSideBarClosed} from "../../Redux/Actions";
 
 const mapStateToProps = (state) => {
     return {
-        sideBarOpen: state.SideBarOpen,
+        sideBarOpen: state.uiReducer.sideBarOpen,
     };
 };
 

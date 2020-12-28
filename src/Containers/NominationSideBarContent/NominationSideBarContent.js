@@ -7,6 +7,7 @@ import {deleteNomination} from "../../Redux/Actions/DeleteNominationAction";
 const mapStateToProps = (state) => {
     return {
         nominations: state.Nominations.nominations,
+        uiLoadingActions: state.uiReducer.loading,
     };
 };
 

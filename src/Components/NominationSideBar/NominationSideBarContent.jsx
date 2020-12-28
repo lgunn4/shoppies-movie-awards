@@ -1,15 +1,27 @@
 import React from 'react';
-import {Col, Row} from "react-bootstrap";
+import {Button, Col, Row, Spinner} from "react-bootstrap";
 import "./NominationSideBarContent.css";
-import {Button} from "antd";
+import {UI_REMOVE} from "../../Redux/ActionTypes";
 
 
-function NominationSideBarContent({setSideBarClosed, deleteNomination, nominations}) {
+function NominationSideBarContent({setSideBarClosed, deleteNomination, nominations, uiLoadingActions}) {
     const nominationList = nominations.map((nomination) => {
+        const button = !uiLoadingActions.some(uiLoadingAction => uiLoadingAction.id === nomination.StrapiID && uiLoadingAction.type === UI_REMOVE) ?
+            (<Button type="text" variant="outline-danger" onClick={() => deleteNomination(nomination.StrapiID)}>X</Button>):
+            (<Button variant="outline-danger" disabled>
+                <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                />
+            </Button>);
+
         return (
             <Row key={`nomination-${nomination.imdbID}`}>
                 <Col xs={1}>
-                    <Button type="text" danger onClick={() => deleteNomination(nomination.StrapiID)}>X</Button>
+                    {button}
                 </Col>
                 <Col xs={11}>
                     <p>{nomination.Title}</p>
@@ -22,7 +34,7 @@ function NominationSideBarContent({setSideBarClosed, deleteNomination, nominatio
         <div className="nomination-side-bar-content">
             <Row>
                 <Col xs={{span: 1, offset: 10}}>
-                    <Button type="text" onClick={() => setSideBarClosed()}>X</Button>
+                    <Button variant="light" onClick={() => setSideBarClosed()}>X</Button>
                 </Col>
             </Row>
             <Row>
