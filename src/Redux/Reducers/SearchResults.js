@@ -8,9 +8,10 @@ import {
 const initialState = {
     totalResults: "",
     searchCriteria: "",
+    pageNumber: 1,
     error: null,
     isLoading: false,
-    results: []
+    results: [],
 };
 
 export default function SearchResults(state = initialState, action) {
@@ -26,9 +27,10 @@ export default function SearchResults(state = initialState, action) {
                 ...state,
                 searchCriteria: action.payload.searchCriteria,
                 totalResults: action.payload.response.totalResults,
-                results: action.payload.response.Search,
+                pageNumber: action.payload.pageNumber,
                 isLoading: true,
-                error: null
+                error: null,
+                results: action.payload.response.Search,
             };
         }
         case FETCH_SEARCH_RESULTS_FAILED: {

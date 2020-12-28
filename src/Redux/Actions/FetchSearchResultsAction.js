@@ -15,6 +15,7 @@ export const fetchSearchResults = (searchText, pageNumber) => (dispatch) => {
             type: FETCH_SEARCH_RESULTS_SUCCESS,
             payload: {
                 searchCriteria: searchText,
+                pageNumber: pageNumber,
                 response
             },
         })

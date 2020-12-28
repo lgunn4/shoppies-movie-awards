@@ -1,29 +1,25 @@
 import React from 'react';
-import ReactPaginate from 'react-paginate';
 import "./SearchPagePagination.css";
+import Pagination from "react-js-pagination";
 
 
 function SearchPagePagination({searchResults, fetchSearchResults}) {
 
-    const handlePageClick = (data) => {
-        fetchSearchResults(searchResults.searchCriteria, data.selected + 1);
+    const handlePageClick = (number) => {
+        fetchSearchResults(searchResults.searchCriteria, number);
     };
 
     if (searchResults.totalResults > 10) {
         return(
             <div className="search-results-pagination">
-                <ReactPaginate
-                    previousLabel={'previous'}
-                    nextLabel={'next'}
-                    breakLabel={'...'}
-                    breakClassName={'break-me'}
-                    pageCount={searchResults.totalResults / 10}
-                    marginPagesDisplayed={1}
+                <Pagination
+                    activePage={searchResults.pageNumber}
+                    itemsCountPerPage={10}
+                    totalItemsCount={Number(searchResults.totalResults)}
                     pageRangeDisplayed={5}
-                    onPageChange={handlePageClick}
-                    containerClassName={'pagination'}
-                    subContainerClassName={'pages pagination'}
-                    activeClassName={'active'}
+                    onChange={handlePageClick}
+                    itemClass="page-item"
+                    linkClass="page-link"
                 />
             </div>
         );
