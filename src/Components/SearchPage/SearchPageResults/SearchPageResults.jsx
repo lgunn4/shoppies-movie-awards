@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Col, Image, Row, Spinner} from 'react-bootstrap';
+import {Col, Image, Row} from 'react-bootstrap';
 
 import "./SearchPageResults.css";
 import SearchPagePagination from "../../../Containers/SearchPagePagination/SearchPagePagination";
