@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import './App.css';
+import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from "./Components/Layout/Layout";
 import NominationSideBar from "./Containers/NominationSideBar/NominationSideBar";
