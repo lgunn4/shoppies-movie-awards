@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, Navbar, Row} from "react-bootstrap";
+import {Alert, Col, Navbar, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrophy} from "@fortawesome/free-solid-svg-icons";
 import "./PageNavigation.css";
@@ -7,8 +7,15 @@ import {Badge} from "antd";
 
 
 function PageNavigation({setSideBarOpen, nominations}) {
+    const notificationBar = nominations.length >= 5 ?
+        ( <Navbar className="alert-navbar" fixed="top">
+            <Alert variant="warning">
+                You have nominated {nominations.length} movies!
+            </Alert>
+        </Navbar>) : null;
+
     return (
-        <div>
+        <div className="PageHeader">
             <Navbar className="pageHeader" bg="dark" variant="dark" fixed="top">
                 <Row className="pageHeaderRow">
                     <Col md={{span: 10, offset: 1}} sm={8} xs={10}>
@@ -22,6 +29,9 @@ function PageNavigation({setSideBarOpen, nominations}) {
                     </Col>
                 </Row>
             </Navbar>
+
+            {notificationBar}
+
         </div>
     );
 

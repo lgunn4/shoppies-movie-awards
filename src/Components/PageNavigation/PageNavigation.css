@@ -1,4 +1,5 @@
 .pageHeader {
+    height: 5rem;
     z-index: 1;
 }
 
@@ -22,5 +23,14 @@
 
 .ant-badge {
     height: 100%;
+}
 
+.alert-navbar {
+    z-index: 1;
+    margin-top: 5rem;
+    padding: 0;
+}
+
+.alert-navbar .alert{
+    width: 100%;
 }
