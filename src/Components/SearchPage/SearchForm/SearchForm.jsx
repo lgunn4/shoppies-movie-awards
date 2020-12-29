@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Col, Form, Jumbotron} from "react-bootstrap";
+import {Button, Col, Form} from "react-bootstrap";
 
 import "./SearchForm.css";
 
@@ -12,10 +12,10 @@ function SearchForm({fetchSearchResults}) {
 
     return (
         <div className="search-form">
-            <Jumbotron>
+
                 <Form onSubmit={onFormSubmit} >
                     <Form.Row>
-                        <Col xs="10">
+                        <Col md="11" xs="9">
                             <Form.Label htmlFor="inlineFormInput" srOnly>
                                 Search
                             </Form.Label>
@@ -26,14 +26,14 @@ function SearchForm({fetchSearchResults}) {
                                 onChange={(e) => changeSearchText(e.target.value)}
                             />
                         </Col>
-                        <Col xs="2">
+                        <Col md="1" xs="3">
                             <Button type="submit" className="mb-2">
                                 Search
                             </Button>
                         </Col>
                     </Form.Row>
                 </Form>
-            </Jumbotron>
+
         </div>
     );
 }

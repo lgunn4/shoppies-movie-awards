@@ -33,3 +33,7 @@
 .alert-navbar .alert{
     width: 100%;
 }
+
+.fa-trophy:hover {
+    cursor:pointer;
+}

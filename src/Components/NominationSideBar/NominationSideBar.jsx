@@ -3,12 +3,9 @@ import Sidebar from "react-sidebar";
 import NominationSideBarContent from "../../Containers/NominationSideBarContent/NominationSideBarContent";
 
 function NominationSideBar({children, sideBarOpen, setSideBarClosed}){
-    const sideBarContent = (<NominationSideBarContent />);
-
-
     return(
         <Sidebar
-            sidebar={sideBarContent}
+            sidebar={(<NominationSideBarContent />)}
             open={sideBarOpen}
             onSetOpen={() => setSideBarClosed()}
             styles={{ sidebar: { background: "white", width: "50vh"} }}
@@ -17,6 +14,6 @@ function NominationSideBar({children, sideBarOpen, setSideBarClosed}){
             {children}
         </Sidebar>
     );
-};
+}
 
 export default NominationSideBar;

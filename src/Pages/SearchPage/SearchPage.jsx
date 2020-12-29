@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import SearchPageForm from "../../Containers/SearchPageForm/SearchPageForm";
 import SearchPageResults from "../../Containers/SearchPageResults/SearchPageResults";
 import SearchPageResultsLoadableComponent from "../../Containers/SearchPageResultsLoadableComponent/SearchPageResultsLoadableComponent";
@@ -10,6 +10,7 @@ function SearchPage() {
     return (
         <div className="search-page">
             <SearchPageForm />
+            <br/>
             <SearchPageResultsLoadableComponent>
                 <SearchPageResults/>
             </SearchPageResultsLoadableComponent>
