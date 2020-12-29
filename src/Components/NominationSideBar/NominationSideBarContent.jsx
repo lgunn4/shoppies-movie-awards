@@ -1,35 +1,46 @@
 import React from 'react';
-import {Button, Col, Row, Spinner} from "react-bootstrap";
+import {Button, Col, Image, Row} from "react-bootstrap";
 import "./NominationSideBarContent.css";
 import {UI_REMOVE} from "../../Redux/ActionTypes";
+import LoadableButton from "../LoadingButton/LoadableButton";
 
 
 function NominationSideBarContent({setSideBarClosed, deleteNomination, nominations, uiLoadingActions}) {
     const nominationList = nominations.map((nomination) => {
-        const button = !uiLoadingActions.some(uiLoadingAction => uiLoadingAction.id === nomination.StrapiID && uiLoadingAction.type === UI_REMOVE) ?
-            (<Button type="text" variant="outline-danger" onClick={() => deleteNomination(nomination.StrapiID)}>X</Button>):
-            (<Button variant="outline-danger" disabled>
-                <Spinner
-                    as="span"
-                    animation="border"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                />
-            </Button>);
+        const isLoading = uiLoadingActions.some(uiLoadingAction => uiLoadingAction.id === nomination.StrapiID && uiLoadingAction.type === UI_REMOVE);
+        const button =
+            (<LoadableButton
+                onClickActionParameter={nomination.StrapiID}
+                onClickAction={deleteNomination}
+                isDisabled={false}
+                isLoading={isLoading}
+                variant="outline-danger"
+                buttonText="Remove"
+            />);
+
+        const posterImage = nomination.Poster === "N/A" ?
+            (<Image src="poster-not-available.jpg" thumbnail />) :
+            (<Image src={nomination.Poster} thumbnail/>);
 
         return (
-            <Row key={`nomination-${nomination.imdbID}`}>
-                <Col xs={1}>
-                    {button}
-                </Col>
-                <Col xs={11}>
-                    <p>{nomination.Title}</p>
-                </Col>
-            </Row>
+            <div>
+                <Row key={`nomination-${nomination.imdbID}`}>
+                    <Col md={4} xs={3}>
+                        {posterImage}
+                    </Col>
+                    <Col md={8} xs={9}>
+                        <h5>{nomination.Title}</h5>
+                        <p>{nomination.Year}</p>
+                        {button}
+                    </Col>
+
+                </Row>
+                <hr/>
+            </div>
         )
     });
 
+    console.log(nominations);
     return(
         <div className="nomination-side-bar-content">
             <Row>
@@ -42,8 +53,9 @@ function NominationSideBarContent({setSideBarClosed, deleteNomination, nominatio
                     <h3>Nominations</h3>
                 </Col>
             </Row>
+            <br/>
 
-            {nominationList}
+            {nominations.length !== 0 ? nominationList : <h6>There are currently 0 nominations</h6>}
         </div>
     );
 

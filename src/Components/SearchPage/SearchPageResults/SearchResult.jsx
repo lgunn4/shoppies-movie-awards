@@ -1,16 +1,18 @@
 import React from 'react';
-import SearchResultButton from "../../SearchResultButton/SearchResultButton";
 import {Col, Image, Row} from "react-bootstrap";
+import LoadableButton from "../../LoadingButton/LoadableButton";
 
 function SearchResult({movieResult, addNomination, nominations, uiLoadingActions}) {
     const isLoading = uiLoadingActions.loading.some(loadingAction => loadingAction.id === movieResult.imdbID);
     const isNominated = nominations.some(nomination => nomination.imdbID === movieResult.imdbID);
     const nominateButton = (
-        <SearchResultButton
-            movieResult={movieResult}
-            addNomination={addNomination}
+        <LoadableButton
+            onClickActionParameter={movieResult}
+            onClickAction={addNomination}
             isLoading={isLoading}
-            isNominated={isNominated}
+            isDisabled={isNominated}
+            variant="success"
+            buttonText="Nominate"
         />);
 
     const posterImage = movieResult.Poster === "N/A" ?
