@@ -1,0 +1,9 @@
+.error-page {
+    color: black;
+    margin: 8rem auto 0 auto;
+    text-align: center;
+}
+
+.error-page svg {
+    font-size: 10rem;
+}

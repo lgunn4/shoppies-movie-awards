@@ -4,8 +4,10 @@ import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from "./Components/Layout/Layout";
 import NominationSideBar from "./Containers/NominationSideBar/NominationSideBar";
-import SearchPage from "./Components/SearchPage/SearchPage";
+import SearchPage from "./Pages/SearchPage/SearchPage";
 import LoadableComponent from "./Components/LoadableComponent/LoadableComponent";
+import ErrorPage from "./Pages/NotFoundPage/ErrorPage";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 function App({fetchNominations, isLoading}) {
     useEffect(() => {
@@ -14,15 +16,18 @@ function App({fetchNominations, isLoading}) {
 
     return (
         <LoadableComponent isLoading={isLoading}>
-            <NominationSideBar>
-                <Layout>
-                    <SearchPage />
-                </Layout>
-            </NominationSideBar>
+            <BrowserRouter>
+                <NominationSideBar>
+                    <Layout>
+                            <Switch>
+                                <Route exact path="/" component = {SearchPage} />
+                                <Route component={ErrorPage} />
+                            </Switch>
+                    </Layout>
+                </NominationSideBar>
+            </BrowserRouter>
         </LoadableComponent>
   );
 }
-
-
 
 export default App;
