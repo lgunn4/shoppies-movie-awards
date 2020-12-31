@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrophy} from "@fortawesome/free-solid-svg-icons";
 import "./PageNavigation.css";
 import {Badge} from "antd";
-import {Link} from "react-router-dom";
 
 
 function PageNavigation({setSideBarOpen, nominations}) {
@@ -20,9 +19,9 @@ function PageNavigation({setSideBarOpen, nominations}) {
             <Navbar className="pageHeader" bg="dark" variant="dark" fixed="top">
                 <Row className="pageHeaderRow">
                     <Col md={{span: 10, offset: 1}} sm={8} xs={10}>
-                        <Link to="/">
+                        <a href="/">
                             <h2>The Shoppies</h2>
-                        </Link>
+                        </a>
                     </Col>
 
                     <Col md={1} sm={4} xs={2}>
