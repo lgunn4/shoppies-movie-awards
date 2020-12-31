@@ -7,42 +7,44 @@ import {
     REMOVE_UI_LOADING_ACTION,
     UI_REMOVE,
 } from "../ActionTypes";
-import {deleteAPINomination} from "../Service/NominationsService";
+import {deleteAPINomination, getNominationResults} from "../Service/NominationsService";
 
-export const deleteNomination = (strapiID) => (dispatch) => {
+export const deleteNomination = (imdbID) => (dispatch) => {
     dispatch({
         type: ADD_UI_LOADING_ACTION,
         payload: {
             type: UI_REMOVE,
-            id: strapiID,
+            id: imdbID,
         }
     });
     dispatch({
         type: DELETE_NOMINATIONS_STARTED,
     });
-    deleteAPINomination(strapiID).then(response => {
+
+    deleteAPINomination(imdbID);
+
+    if (!getNominationResults().some(cacheNomination => cacheNomination.imdbID === imdbID)) {
         dispatch({
             type: DELETE_NOMINATIONS_SUCCESS,
             payload: {
-                StrapiID: strapiID,
+                imdbID: imdbID,
             },
         });
         dispatch({
             type: REMOVE_UI_LOADING_ACTION,
             payload: {
-                id: strapiID,
+                id: imdbID,
             }
         });
-    }).catch((error) => {
+    } else {
         dispatch({
             type: DELETE_NOMINATIONS_FAILED,
             payload: {
-                error
+                error: DELETE_NOMINATIONS_FAILED,
             },
         });
-    }).finally(() => {
-        dispatch({
-            type: DELETE_NOMINATIONS_ENDED
-        })
-    })
+    }
+    dispatch({
+        type: DELETE_NOMINATIONS_ENDED
+    });
 };

@@ -4,7 +4,7 @@ import {
     ADD_NOMINATIONS_STARTED,
     ADD_NOMINATIONS_SUCCESS, ADD_UI_LOADING_ACTION, REMOVE_UI_LOADING_ACTION, UI_ADD,
 } from "../ActionTypes";
-import {postNomination} from "../Service/NominationsService";
+import {getNominationResults, postNomination} from "../Service/NominationsService";
 
 export const addNomination = (nomination) => (dispatch) => {
     dispatch({
@@ -17,12 +17,12 @@ export const addNomination = (nomination) => (dispatch) => {
     dispatch({
         type: ADD_NOMINATIONS_STARTED,
     });
-    postNomination(nomination).then(response => {
+
+    postNomination(nomination);
+    if (getNominationResults().some(cacheNomination => cacheNomination.imdbID === nomination.imdbID)) {
         dispatch({
             type: ADD_NOMINATIONS_SUCCESS,
-            payload: {
-                response
-            },
+            payload: nomination,
         });
         dispatch({
             type: REMOVE_UI_LOADING_ACTION,
@@ -30,16 +30,15 @@ export const addNomination = (nomination) => (dispatch) => {
                 id: nomination.imdbID,
             }
         });
-    }).catch((error) => {
+    } else {
         dispatch({
             type: ADD_NOMINATIONS_FAILED,
             payload: {
-                error
+                error: ADD_NOMINATIONS_FAILED,
             },
         });
-    }).finally(() => {
-        dispatch({
-            type: ADD_NOMINATIONS_ENDED
-        })
+    }
+    dispatch({
+        type: ADD_NOMINATIONS_ENDED
     })
 };

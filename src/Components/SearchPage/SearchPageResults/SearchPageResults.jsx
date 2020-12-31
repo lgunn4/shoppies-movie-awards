@@ -14,7 +14,7 @@ function SearchPageResults({searchResults}) {
     const movieResultRows = searchResults.error !== null ?
         (<p>No results match this search criteria!</p>) :
         searchResults.results.map(movieResult => {
-            return (<SearchResult movieResult={movieResult}/>);
+            return (<SearchResult key={movieResult.imdbID} movieResult={movieResult}/>);
     });
 
     return(

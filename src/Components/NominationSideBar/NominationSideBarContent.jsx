@@ -10,7 +10,7 @@ function NominationSideBarContent({setSideBarClosed, deleteNomination, nominatio
         const isLoading = uiLoadingActions.some(uiLoadingAction => uiLoadingAction.id === nomination.StrapiID && uiLoadingAction.type === UI_REMOVE);
         const button =
             (<LoadableButton
-                onClickActionParameter={nomination.StrapiID}
+                onClickActionParameter={nomination.imdbID}
                 onClickAction={deleteNomination}
                 isDisabled={false}
                 isLoading={isLoading}
@@ -23,8 +23,8 @@ function NominationSideBarContent({setSideBarClosed, deleteNomination, nominatio
             (<Image src={nomination.Poster} thumbnail/>);
 
         return (
-            <div>
-                <Row key={`nomination-${nomination.imdbID}`}>
+            <div key={`nomination-${nomination.imdbID}`}>
+                <Row>
                     <Col md={4} xs={3}>
                         {posterImage}
                     </Col>
@@ -39,8 +39,6 @@ function NominationSideBarContent({setSideBarClosed, deleteNomination, nominatio
             </div>
         )
     });
-
-    console.log(nominations);
     return(
         <div className="nomination-side-bar-content">
             <Row>

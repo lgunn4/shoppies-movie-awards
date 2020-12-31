@@ -10,23 +10,23 @@ export const fetchNominations = () => (dispatch) => {
     dispatch({
         type: FETCH_NOMINATIONS_STARTED,
     });
-    getNominationResults().then(response => {
+    const nominations = getNominationResults();
+
+    if (nominations) {
         dispatch({
             type: FETCH_NOMINATIONS_SUCCESS,
-            payload: {
-                response
-            },
-        })
-    }).catch((error) => {
+            payload: nominations,
+        });
+    } else {
         dispatch({
             type: FETCH_NOMINATIONS_FAILED,
             payload: {
-                error
+                error: FETCH_NOMINATIONS_FAILED,
             },
         });
-    }).finally(() => {
-        dispatch({
-            type: FETCH_NOMINATIONS_ENDED
-        })
-    })
+    }
+
+    dispatch({
+        type: FETCH_NOMINATIONS_ENDED
+    });
 };

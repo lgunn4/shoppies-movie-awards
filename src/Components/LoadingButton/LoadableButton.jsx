@@ -4,7 +4,7 @@ import {Button, Spinner} from "react-bootstrap";
 function LoadableButton({isLoading, isDisabled, onClickAction, onClickActionParameter, variant, buttonText}) {
     let button =
         isDisabled ?
-            (<Button disabled variant="disabled">{buttonText}</Button>) :
+            (<Button disabled variant="disabled">{buttonText}d</Button>) :
             (<Button variant={variant} onClick={() => onClickAction(onClickActionParameter)}>{buttonText}</Button>);
 
 

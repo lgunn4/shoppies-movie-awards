@@ -33,7 +33,7 @@ export default function Nominations(state = initialState, action) {
         case FETCH_NOMINATIONS_SUCCESS: {
             return {
                 ...state,
-                nominations: action.payload.response.map(nomination => ({...nomination, StrapiID: nomination.id, id:null})),
+                nominations: action.payload,
                 error: null,
                 loaded: true,
             };
@@ -50,10 +50,7 @@ export default function Nominations(state = initialState, action) {
                 ...state,
                 nominations: [
                     ...state.nominations,
-                    {
-                        ...action.payload.response,
-                        StrapiID: action.payload.response.id,
-                    }
+                    action.payload,
                 ]
             }
         }
@@ -67,7 +64,7 @@ export default function Nominations(state = initialState, action) {
         case DELETE_NOMINATIONS_SUCCESS: {
             return {
                 ...state,
-                nominations: state.nominations.filter(nomination => nomination.StrapiID !== action.payload.StrapiID),
+                nominations: state.nominations.filter(nomination => nomination.imdbID !== action.payload.imdbID),
             }
         }
         case FETCH_NOMINATIONS_ENDED:

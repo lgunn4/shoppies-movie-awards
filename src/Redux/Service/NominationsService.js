@@ -1,32 +1,27 @@
-import {STRAPI_API_URL} from "../../Constants/Constants";
+import {LOCAL_STORAGE_KEY_NOMINATIONS} from "../../Constants/Constants";
 
 export const getNominationResults = () => {
-    return fetch(
-        encodeURI(`${STRAPI_API_URL}/nominations`),
-        {
-            method:      'GET',
-        },
-    ).then(response => response.json()
-    ).then(data => data);
+    const nominations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS));
+    if (nominations === null) {
+        return [];
+    } else {
+        return nominations;
+    }
 };
 
-export const deleteAPINomination = (strapiID) => {
-    return fetch(
-        encodeURI(`${STRAPI_API_URL}/nominations/${strapiID}`),
-        {
-            method: 'DELETE',
-        }
-    ).then(response => response.json()
-    ).then(data => data);
+export const deleteAPINomination = (imdbID) => {
+    const nominations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS))
+        .filter(nomination => nomination.imdbID !== imdbID);
+
+    localStorage.setItem(LOCAL_STORAGE_KEY_NOMINATIONS, JSON.stringify(nominations));
 };
 
 export const postNomination = (nomination) => {
-    return fetch(
-        encodeURI(`${STRAPI_API_URL}/nominations`),
-        {
-            method: 'POST',
-            body: JSON.stringify(nomination)
-        }
-    ).then(response => response.json()
-    ).then(data => data);
+    let nominations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS));
+    if (nominations === null) {
+        nominations = [nomination];
+    } else {
+        nominations.push(nomination);
+    }
+    localStorage.setItem(LOCAL_STORAGE_KEY_NOMINATIONS, JSON.stringify(nominations));
 };
