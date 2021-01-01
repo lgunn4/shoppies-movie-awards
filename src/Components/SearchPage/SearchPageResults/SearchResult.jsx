@@ -1,15 +1,13 @@
 import React from 'react';
 import {Col, Image, Row} from "react-bootstrap";
-import LoadableButton from "../../LoadingButton/LoadableButton";
+import AnimatedButton from "../../LoadingButton/AnimatedButton";
 
-function SearchResult({movieResult, addNomination, nominations, uiLoadingActions}) {
-    const isLoading = uiLoadingActions.loading.some(loadingAction => loadingAction.id === movieResult.imdbID);
+function SearchResult({movieResult, addNomination, nominations}) {
     const isNominated = nominations.some(nomination => nomination.imdbID === movieResult.imdbID);
     const nominateButton = (
-        <LoadableButton
+        <AnimatedButton
             onClickActionParameter={movieResult}
             onClickAction={addNomination}
-            isLoading={isLoading}
             isDisabled={isNominated}
             variant="success"
             buttonText="Nominate"

@@ -15,7 +15,7 @@ function SearchForm({fetchSearchResults}) {
 
                 <Form onSubmit={onFormSubmit} >
                     <Form.Row>
-                        <Col md="11" xs="9">
+                        <Col md="10" sm="10" xs="9">
                             <Form.Label htmlFor="inlineFormInput" srOnly>
                                 Search
                             </Form.Label>
@@ -26,7 +26,7 @@ function SearchForm({fetchSearchResults}) {
                                 onChange={(e) => changeSearchText(e.target.value)}
                             />
                         </Col>
-                        <Col md="1" xs="3">
+                        <Col md="2" sm="2" xs="3">
                             <Button type="submit" className="mb-2">
                                 Search
                             </Button>

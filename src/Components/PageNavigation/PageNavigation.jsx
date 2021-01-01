@@ -1,18 +1,23 @@
-import React from 'react';
+import React from "react";
 import {Alert, Col, Navbar, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrophy} from "@fortawesome/free-solid-svg-icons";
 import "./PageNavigation.css";
 import {Badge} from "antd";
+import {Animated} from "react-animated-css";
 
 
 function PageNavigation({setSideBarOpen, nominations}) {
-    const notificationBar = nominations.length >= 5 ?
-        ( <Navbar className="alert-navbar" fixed="top">
-            <Alert variant="warning">
-                You have nominated {nominations.length} movies!
-            </Alert>
-        </Navbar>) : null;
+    const animationIsVisible = nominations.length >= 5;
+
+    const notificationBar = (
+        <Navbar className="alert-navbar" fixed="top">
+            <Animated animationIn="slideInDown" animationOut="slideOutUp" isVisible={animationIsVisible} animateOnMount={false}>
+                <Alert variant="warning">
+                    You have nominated {nominations.length} movies!
+                </Alert>
+            </Animated>
+        </Navbar>);
 
     return (
         <div className="PageHeader">

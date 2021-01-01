@@ -6,7 +6,6 @@ import SearchResult from "../../Components/SearchPage/SearchPageResults/SearchRe
 const mapStateToProps = (state) => {
     return {
         nominations: state.Nominations.nominations,
-        uiLoadingActions: state.uiReducer,
     };
 };
 

@@ -1,19 +1,20 @@
 import React from 'react';
 import {Button, Col, Image, Row} from "react-bootstrap";
 import "./NominationSideBarContent.css";
-import {UI_REMOVE} from "../../Redux/ActionTypes";
-import LoadableButton from "../LoadingButton/LoadableButton";
+import {
+    CSSTransition,
+    TransitionGroup,
+} from 'react-transition-group';
+import AnimatedButton from "../LoadingButton/AnimatedButton";
 
 
-function NominationSideBarContent({setSideBarClosed, deleteNomination, nominations, uiLoadingActions}) {
+function NominationSideBarContent({setSideBarClosed, deleteNomination, nominations}) {
     const nominationList = nominations.map((nomination) => {
-        const isLoading = uiLoadingActions.some(uiLoadingAction => uiLoadingAction.id === nomination.StrapiID && uiLoadingAction.type === UI_REMOVE);
         const button =
-            (<LoadableButton
+            (<AnimatedButton
                 onClickActionParameter={nomination.imdbID}
                 onClickAction={deleteNomination}
                 isDisabled={false}
-                isLoading={isLoading}
                 variant="outline-danger"
                 buttonText="Remove"
             />);
@@ -23,6 +24,11 @@ function NominationSideBarContent({setSideBarClosed, deleteNomination, nominatio
             (<Image src={nomination.Poster} thumbnail/>);
 
         return (
+            <CSSTransition
+                key={nomination.imdbID}
+                timeout={500}
+                classNames="item"
+            >
             <div key={`nomination-${nomination.imdbID}`}>
                 <Row>
                     <Col md={4} xs={3}>
@@ -37,6 +43,7 @@ function NominationSideBarContent({setSideBarClosed, deleteNomination, nominatio
                 </Row>
                 <hr/>
             </div>
+            </CSSTransition>
         )
     });
     return(
@@ -53,7 +60,8 @@ function NominationSideBarContent({setSideBarClosed, deleteNomination, nominatio
             </Row>
             <br/>
 
-            {nominations.length !== 0 ? nominationList : <h6>There are currently 0 nominations</h6>}
+            {nominations.length !== 0 ? (<TransitionGroup>{nominationList}</TransitionGroup>) : <h6>There are currently 0 nominations</h6>}
+
         </div>
     );
 
