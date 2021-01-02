@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Col, Image, Jumbotron, Row} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
 import "./HomePage.css";
 import {Link} from "react-router-dom";
 import NominationCards from "../../Containers/NominationCards/NominationCards";
