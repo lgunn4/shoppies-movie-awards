@@ -13,7 +13,7 @@
     color: white;
 }
 
-.fa-trophy {
+.fa-trophy, .fa-mouse-pointer {
     color: white;
     height: 100%;
     vertical-align: middle;
@@ -22,6 +22,9 @@
 
 .ant-badge {
     height: 100%;
+}
+.ant-badge p{
+    color: white;
 }
 
 .alert-navbar {
@@ -40,4 +43,16 @@
 
 .animated, .slideInDown, .slideOutUp{
     width: 100%;
+}
+
+.page-navigation-search {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-navigation-search h6 {
+    color: white;
+    text-align: right;
+    margin: 0;
 }

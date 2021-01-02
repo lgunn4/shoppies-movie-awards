@@ -1,0 +1,58 @@
+.home-page-title-image {
+    background-image: url("../../Constants/movie-background.jpg");
+    background-position:  center;
+    background-size: cover;
+    width: 100%;
+    height: 75vh;
+}
+.home-page-title-row {
+    background-color: #596570;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+.home-page-title-col h3 {
+    color: white;
+    vertical-align: middle;
+}
+
+.home-page-title-col{
+    margin: 0 auto;
+    height: 15vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-page-nomination-search-row {
+    width: 100%;
+    margin: 0;
+}
+
+.home-page-search-row {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+}
+
+.home-page-search-box {
+    width: 100%;
+    text-align: center;
+    padding: 5vh 0;
+    border-radius: 1vh;
+}
+.home-page-search-box p, .home-page-search-box h3 {
+    color: black;
+}
+
+.home-page-nominations, .home-page-search-row {
+    margin-bottom: 10vh;
+}
+.card-title {
+    text-align: center;
+    color: black;
+}
+.home-page-nominations h3 {
+    text-align: center;
+}

@@ -1,0 +1,11 @@
+.nomination-cards p {
+    text-align: center;
+}
+
+.item-exit {
+    opacity: 1;
+}
+.item-exit-active {
+    transform: translate(30vh);
+    transition: all 300ms ease-in;
+}

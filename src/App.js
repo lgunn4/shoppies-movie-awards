@@ -7,6 +7,7 @@ import SearchPage from "./Pages/SearchPage/SearchPage";
 import LoadableComponent from "./Components/LoadableComponent/LoadableComponent";
 import ErrorPage from "./Pages/NotFoundPage/ErrorPage";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
+import HomePage from "./Pages/HomePage/HomePage";
 
 function App({fetchNominations, isLoading}) {
     useEffect(() => {
@@ -18,7 +19,8 @@ function App({fetchNominations, isLoading}) {
             <BrowserRouter>
                 <Layout>
                     <Switch>
-                        <Route exact path="/" component = {SearchPage} />
+                        <Route exact path="/search" component = {SearchPage} />
+                        <Route exact path="/" component = {HomePage} />
                         <Route component={ErrorPage} />
                     </Switch>
                 </Layout>
