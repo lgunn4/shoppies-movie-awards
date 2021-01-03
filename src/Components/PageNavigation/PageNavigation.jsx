@@ -24,10 +24,12 @@ function PageNavigation({setSideBarOpen, nominations}) {
         <div className="PageHeader">
             <Navbar className="pageHeader" bg="dark" variant="dark" fixed="top">
                 <Row className="pageHeaderRow">
-                    <Col md={{span: 8, offset: 2}} sm={7} xs={8}>
-                        <Link to="/">
-                            <h2>The Shoppies</h2>
-                        </Link>
+                    <Col md={10} sm={7} xs={8}>
+                        <div className="page-navigation-title">
+                            <Link to="/">
+                                <h2>The Shoppies</h2>
+                            </Link>
+                        </div>
                     </Col>
                     <Col className="page-navigation-search" md={1} sm={2} xs={2}>
                         <Link to="/search">

@@ -1,4 +1,4 @@
-import {LOCAL_STORAGE_KEY_NOMINATIONS} from "../../Constants/Constants";
+import {LOCAL_STORAGE_KEY_NOMINATIONS} from "../../Assets/Constants";
 
 export const getNominationResults = () => {
     const nominations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS));
