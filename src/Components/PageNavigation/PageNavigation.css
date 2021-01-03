@@ -60,3 +60,20 @@
     text-align: right;
     margin: 0;
 }
+
+.alert-transition-enter{
+    transform: translateY(-100%);
+}
+.alert-transition-exit{
+    transform: translateY(0%);
+}
+.alert-transition-enter-active{
+    transform: translateY(0%);
+}
+.alert-transition-exit-active{
+    transform: translateY(-100%);
+}
+.alert-transition-enter-active,
+.alert-transition-exit-active{
+    transition: transform 500ms ease-in;
+}
