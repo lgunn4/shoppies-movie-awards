@@ -5,16 +5,18 @@ import "./SearchForm.css";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function SearchForm({fetchSearchResults}) {
+function SearchForm({fetchSearchResults, customSubmitFunction}) {
     const [searchText, changeSearchText] = useState("");
     const onFormSubmit = (e) => {
         e.preventDefault();
         fetchSearchResults(searchText, 1);
+        if (customSubmitFunction) {
+            customSubmitFunction();
+        }
     };
 
     return (
         <div className="search-form">
-            <h3>Search For a Movie</h3>
                 <Form onSubmit={onFormSubmit} >
                     <Form.Row>
                         <Col md="10" sm="10" xs="9">

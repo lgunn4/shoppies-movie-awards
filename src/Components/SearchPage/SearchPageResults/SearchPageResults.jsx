@@ -1,5 +1,4 @@
 import React from 'react';
-import "./SearchPageResults.css";
 import SearchPagePagination from "../../../Containers/SearchPagePagination/SearchPagePagination";
 import SearchResult from "../../../Containers/SearchResult/SearchResult";
 
