@@ -5,7 +5,7 @@ import SearchResult from "../../../Containers/SearchResult/SearchResult";
 
 
 function SearchPageResults({searchResults}) {
-    const resultsTitle = searchResults.searchCriteria === "" ? null :
+    const resultsTitle = searchResults.searchCriteria === null ? null :
         (<div>
             <h3>Displaying Results for: "{searchResults.searchCriteria}"</h3>
             <p>{searchResults.totalResults} results returned</p>
