@@ -1,16 +1,15 @@
 import React from 'react';
 import {Col, Image, Row} from "react-bootstrap";
-import AnimatedButton from "../../LoadingButton/AnimatedButton";
+import SearchResultButtons from "../SearchResultButtons/SearchResultButtons";
 
-function SearchResult({movieResult, addNomination, nominations}) {
+function SearchResult({movieResult, addNomination, deleteNomination, nominations}) {
     const isNominated = nominations.some(nomination => nomination.imdbID === movieResult.imdbID);
-    const nominateButton = (
-        <AnimatedButton
-            onClickActionParameter={movieResult}
-            onClickAction={addNomination}
-            isDisabled={isNominated}
-            variant="success"
-            buttonText="Nominate"
+    const resultButtons = (
+        <SearchResultButtons
+            isNominated={isNominated}
+            movieResult={movieResult}
+            addNomination={addNomination}
+            deleteNomination={deleteNomination}
         />);
 
     const posterImage = movieResult.Poster === "N/A" ?
@@ -26,7 +25,7 @@ function SearchResult({movieResult, addNomination, nominations}) {
                 <Col md={10}>
                     <h5>{movieResult.Title}</h5>
                     <p>{movieResult.Year}</p>
-                    {nominateButton}
+                    {resultButtons}
                 </Col>
             </Row>
             <hr/>

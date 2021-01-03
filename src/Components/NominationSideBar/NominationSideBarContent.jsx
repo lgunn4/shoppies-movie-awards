@@ -5,19 +5,12 @@ import {
     CSSTransition,
     TransitionGroup,
 } from 'react-transition-group';
-import AnimatedButton from "../LoadingButton/AnimatedButton";
 
 
 function NominationSideBarContent({setSideBarClosed, deleteNomination, nominations}) {
     const nominationList = nominations.map((nomination) => {
         const button =
-            (<AnimatedButton
-                onClickActionParameter={nomination.imdbID}
-                onClickAction={deleteNomination}
-                isDisabled={false}
-                variant="outline-danger"
-                buttonText="Remove"
-            />);
+            (<Button onClick={() => deleteNomination(nomination.imdbID)} variant="outline-danger">Remove</Button>);
 
         const posterImage = nomination.Poster === "N/A" ?
             (<Image src="poster-not-available.jpg" thumbnail />) :

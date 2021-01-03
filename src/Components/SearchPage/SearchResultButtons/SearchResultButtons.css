@@ -6,13 +6,11 @@
 }
 .fade-exit{
     opacity: 1;
-    transform: translateX(0%);
 }
 .fade-exit-active {
     opacity: 0;
-    transform: translateX(100%);
 }
 .fade-enter-active,
-.fade-exit-active{
-    transition: opacity 300ms, transform 300ms;
+.fade-exit-active {
+    transition: opacity 300ms;
 }
