@@ -6,11 +6,15 @@
     color: white;
     padding: 2vh;
     width:100%;
-    text-align: center;
 }
 
 .pageHeaderRow h2 {
     color: white;
+    text-align: left;
+    font-family: 'Lobster', cursive;
+}
+.page-navigation-title {
+    width: fit-content;
 }
 
 .fa-trophy, .fa-mouse-pointer {
@@ -55,4 +59,21 @@
     color: white;
     text-align: right;
     margin: 0;
+}
+
+.alert-transition-enter{
+    transform: translateY(-100%);
+}
+.alert-transition-exit{
+    transform: translateY(0%);
+}
+.alert-transition-enter-active{
+    transform: translateY(0%);
+}
+.alert-transition-exit-active{
+    transform: translateY(-100%);
+}
+.alert-transition-enter-active,
+.alert-transition-exit-active{
+    transition: transform 500ms ease-in;
 }

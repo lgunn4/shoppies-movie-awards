@@ -6,14 +6,16 @@ import NominationSideBar from "../../Containers/NominationSideBar/NominationSide
 
 function Layout({children}) {
     return (
-        <NominationSideBar>
-            <Container fluid>
-                <PageNavigation />
-                <div className="pageBody">
-                    {children}
-                </div>
-            </Container>
-        </NominationSideBar>
+        <div className="layout">
+            <NominationSideBar>
+                <Container fluid>
+                    <PageNavigation />
+                    <div className="pageBody">
+                        {children}
+                    </div>
+                </Container>
+            </NominationSideBar>
+        </div>
     )
 }
 export default Layout;

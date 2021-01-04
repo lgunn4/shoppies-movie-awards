@@ -1,37 +1,35 @@
 .home-page-title-image {
-    background-image: url("../../Constants/movie-background.jpg");
+    background-image: url("../../Assets/movie-background.jpg");
     background-position:  center;
     background-size: cover;
     width: 100%;
-    height: 75vh;
+    height: 85vh;
 }
 .home-page-title-row {
-    background-color: #596570;
+    background-color: sandybrown;
     text-align: center;
     width: 100%;
     margin: 0;
+    height: 15vh;
 }
-.home-page-title-col h3 {
+.home-page-title-col-text h3 {
     color: white;
     vertical-align: middle;
 }
 
-.home-page-title-col{
+.home-page-title-col-text{
     margin: 0 auto;
-    height: 15vh;
+    height: 10vh;
     display:flex;
     align-items: center;
     justify-content: center;
-}
-.home-page-nomination-search-row {
-    width: 100%;
-    margin: 0;
 }
 
-.home-page-search-row {
-    display:flex;
-    align-items: center;
-    justify-content: center;
+.home-page-title-col-chevron{
+    height: 5vh;
+}
+
+.home-page-nomination-search-row {
     width: 100%;
     margin: 0;
 }

@@ -1,4 +1,4 @@
-import {OMDB_API_URL} from "../../Constants/Constants";
+import {OMDB_API_URL} from "../../Assets/Constants";
 
 export const getOMDBResults = (searchText, pageNumber) => {
     return fetch(

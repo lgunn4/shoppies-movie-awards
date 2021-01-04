@@ -2,10 +2,14 @@
     text-align: center;
 }
 
-.item-exit {
+.card-exit {
     opacity: 1;
 }
-.item-exit-active {
-    transform: translate(30vh);
+.card-exit-active {
+    opacity: 0;
     transition: all 300ms ease-in;
+}
+
+.card-deck {
+    margin: 2vh;
 }

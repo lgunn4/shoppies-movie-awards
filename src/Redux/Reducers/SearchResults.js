@@ -7,7 +7,7 @@ import {
 
 const initialState = {
     totalResults: "",
-    searchCriteria: "",
+    searchCriteria: null,
     pageNumber: 1,
     error: null,
     isLoading: false,

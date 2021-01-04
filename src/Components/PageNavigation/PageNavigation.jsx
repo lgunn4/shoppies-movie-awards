@@ -4,30 +4,31 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrophy} from "@fortawesome/free-solid-svg-icons";
 import "./PageNavigation.css";
 import {Badge} from "antd";
-import {Animated} from "react-animated-css";
 import {Link} from "react-router-dom";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 
 function PageNavigation({setSideBarOpen, nominations}) {
-    const animationIsVisible = nominations.length >= 5;
 
-    const notificationBar = (
-        <Navbar className="alert-navbar" fixed="top">
-            <Animated animationIn="slideInDown" animationOut="slideOutUp" isVisible={animationIsVisible} animateOnMount={false}>
-                <Alert variant="warning">
-                    You have nominated {nominations.length} movies!
-                </Alert>
-            </Animated>
-        </Navbar>);
+    const notificationBar = nominations.length >= 5 ? (
+        <CSSTransition timeout={500} classNames="alert-transition">
+            <Navbar className="alert-navbar" fixed="top">
+                    <Alert variant="warning">
+                        You have nominated {nominations.length} movies!
+                    </Alert>
+            </Navbar>
+        </CSSTransition>) : null;
 
     return (
         <div className="PageHeader">
             <Navbar className="pageHeader" bg="dark" variant="dark" fixed="top">
                 <Row className="pageHeaderRow">
-                    <Col md={{span: 8, offset: 2}} sm={7} xs={8}>
-                        <Link to="/">
-                            <h2>The Shoppies</h2>
-                        </Link>
+                    <Col md={10} sm={7} xs={8}>
+                        <div className="page-navigation-title">
+                            <Link to="/">
+                                <h2>The Shoppies</h2>
+                            </Link>
+                        </div>
                     </Col>
                     <Col className="page-navigation-search" md={1} sm={2} xs={2}>
                         <Link to="/search">
@@ -44,7 +45,9 @@ function PageNavigation({setSideBarOpen, nominations}) {
                 </Row>
             </Navbar>
 
-            {notificationBar}
+            <TransitionGroup>
+                {notificationBar}
+            </TransitionGroup>
 
         </div>
     );

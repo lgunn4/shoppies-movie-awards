@@ -20,6 +20,8 @@ function SearchPagePagination({searchResults, fetchSearchResults}) {
                     onChange={handlePageClick}
                     itemClass="page-item"
                     linkClass="page-link"
+                    prevPageText="Prev"
+                    nextPageText="Next"
                 />
             </div>
         );
