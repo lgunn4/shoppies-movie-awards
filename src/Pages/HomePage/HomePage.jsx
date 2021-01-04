@@ -32,7 +32,7 @@ function HomePage(){
             <Row className="home-page-nomination-search-row">
                 <Col className="home-page-search-row" xs={12} md={{span: 8, offset: 2}}>
                     <div className="home-page-search-box">
-                        <p>Search for a Movie to Nominate it</p>
+                        <p>Search for a Movie to Nominate</p>
                         <h3>Start Searching</h3>
                         <SearchPageForm customSubmitFunction={customSubmitFunction}/>
                     </div>
