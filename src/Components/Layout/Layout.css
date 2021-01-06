@@ -4,5 +4,5 @@
 
 .container-fluid {
     padding: 0;
-    color: white;
+    color: var(--white);
 }

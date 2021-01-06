@@ -8,7 +8,7 @@ function NominationSideBar({children, sideBarOpen, setSideBarClosed}){
             sidebar={(<NominationSideBarContent />)}
             open={sideBarOpen}
             onSetOpen={() => setSideBarClosed()}
-            styles={{ sidebar: { background: "white", width: "50vh", zIndex: "3"} }}
+            styles={{ sidebar: { background: "var(--white)", width: "50vh", zIndex: "3"} }}
             pullRight
         >
             {children}

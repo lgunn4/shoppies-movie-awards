@@ -3,13 +3,13 @@
 }
 
 .pageHeaderRow{
-    color: white;
+    color: var(--white);
     padding: 2vh;
     width:100%;
 }
 
 .pageHeaderRow h2 {
-    color: white;
+    color: var(--white);
     text-align: left;
     font-family: 'Lobster', cursive;
 }
@@ -18,7 +18,7 @@
 }
 
 .fa-trophy, .fa-mouse-pointer {
-    color: white;
+    color: var(--white);
     height: 100%;
     vertical-align: middle;
     font-size: 2rem;
@@ -28,7 +28,7 @@
     height: 100%;
 }
 .ant-badge p{
-    color: white;
+    color: var(--white);
 }
 
 .alert-navbar {
@@ -56,7 +56,7 @@
 }
 
 .page-navigation-search h6 {
-    color: white;
+    color: var(--white);
     text-align: right;
     margin: 0;
 }

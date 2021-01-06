@@ -6,14 +6,14 @@
     height: 85vh;
 }
 .home-page-title-row {
-    background-color: rgb(52, 58, 64);
+    background-color: var(--banner-color);
     text-align: center;
     width: 100%;
     margin: 0;
     height: 15vh;
 }
 .home-page-title-col-text h3 {
-    color: white;
+    color: var(--white);
     vertical-align: middle;
 }
 
@@ -41,7 +41,7 @@
     border-radius: 1vh;
 }
 .home-page-search-box p, .home-page-search-box h3 {
-    color: black;
+    color: var(--black);
 }
 
 .home-page-nominations, .home-page-search-row {
@@ -49,7 +49,7 @@
 }
 .card-title {
     text-align: center;
-    color: black;
+    color: var(--black);
 }
 .home-page-nominations h3 {
     text-align: center;
