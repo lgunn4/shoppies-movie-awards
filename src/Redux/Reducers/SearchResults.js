@@ -1,4 +1,5 @@
 import {
+    CLEAR_SEARCH_RESULTS,
     FETCH_SEARCH_RESULTS_ENDED,
     FETCH_SEARCH_RESULTS_FAILED,
     FETCH_SEARCH_RESULTS_STARTED,
@@ -47,6 +48,9 @@ export default function SearchResults(state = initialState, action) {
                 ...state,
                 isLoading: false,
             }
+        }
+        case CLEAR_SEARCH_RESULTS: {
+            return initialState;
         }
         default:
             return state;

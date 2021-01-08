@@ -10,6 +10,7 @@ function SearchForm({fetchSearchResults, customSubmitFunction}) {
     const onFormSubmit = (e) => {
         e.preventDefault();
         fetchSearchResults(searchText, 1);
+
         if (customSubmitFunction) {
             customSubmitFunction();
         }
