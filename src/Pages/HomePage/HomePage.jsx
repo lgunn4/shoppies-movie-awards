@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Col, Row} from "react-bootstrap";
 import "./HomePage.css";
 import {useHistory} from "react-router-dom";
@@ -7,9 +7,12 @@ import SearchPageForm from "../../Containers/SearchPageForm/SearchPageForm";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function HomePage(){
-    const history = useHistory();
+function HomePage({clearSearchResults}){
+    useEffect(() => {
+        clearSearchResults();
+    });
 
+    const history = useHistory();
     const customSubmitFunction = () => {
         history.push("/search");
     };

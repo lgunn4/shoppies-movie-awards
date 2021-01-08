@@ -7,7 +7,8 @@ import SearchPage from "./Pages/SearchPage/SearchPage";
 import LoadableComponent from "./Components/LoadableComponent/LoadableComponent";
 import ErrorPage from "./Pages/NotFoundPage/ErrorPage";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import HomePage from "./Pages/HomePage/HomePage";
+import HomePage from "./Containers/HomePage/HomePage";
+
 
 function App({fetchNominations, isLoading}) {
     useEffect(() => {

@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import PageNavigation from "../../Components/PageNavigation/PageNavigation";
-import {setSideBarOpen} from "../../Redux/Actions";
+import {setSideBarOpen} from "../../Redux/Actions/UIActions";
 
 const mapStateToProps = (state) => {
     return {
