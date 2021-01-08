@@ -2,14 +2,6 @@
     text-align: center;
 }
 
-.card-exit {
-    opacity: 1;
-}
-.card-exit-active {
-    opacity: 0;
-    transition: all 300ms ease-in;
-}
-
 .card-deck {
     margin: 2vh;
 }
@@ -19,4 +11,8 @@
     height: 55vh;
     object-fit: cover;
     object-position: top;
+}
+
+.empty-card {
+    border: none;
 }
