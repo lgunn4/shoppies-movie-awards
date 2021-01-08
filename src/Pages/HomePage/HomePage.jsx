@@ -40,7 +40,7 @@ function HomePage({clearSearchResults}){
                         <SearchPageForm customSubmitFunction={customSubmitFunction}/>
                     </div>
                 </Col>
-                <Col className="home-page-nominations" xs={{span: 9, offset: 1}} sm={{span: 8, offset: 2}} md={{span: 8, offset: 2}}>
+                <Col className="home-page-nominations" sm={{span: 10, offset: 1}} md={{span: 8, offset: 2}}>
                     <h3>Current Nominations</h3>
                     <br/>
                     <NominationCards />

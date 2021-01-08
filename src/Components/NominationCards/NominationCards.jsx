@@ -2,13 +2,17 @@ import React from "react";
 import {Card, CardColumns} from "react-bootstrap";
 import "./NominationCards.css";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
-import {HOME_PAGE_CARD_ROW_SIZE} from "../../Assets/Constants";
+import {HOME_PAGE_CARD_ROW_SIZE, NOMINATION_TEXT_LENGTH} from "../../Assets/Constants";
 
 function NominationCards({nominations}) {
     const nominationCards = nominations.map(nomination => {
         const posterImageSource = nomination.Poster === "N/A" ?
             "poster-not-available.jpg" :
             nomination.Poster;
+
+        const nominationText = nomination.Title.length > NOMINATION_TEXT_LENGTH ?
+            nomination.Title.substring(0, NOMINATION_TEXT_LENGTH) + "..." :
+            nomination.Title;
 
         return (
             <CSSTransition
@@ -18,7 +22,7 @@ function NominationCards({nominations}) {
                 <Card>
                     <Card.Img variant="top" src={posterImageSource} />
                     <Card.Body>
-                        <Card.Text><strong>{nomination.Title}</strong></Card.Text>
+                        <Card.Text><strong>{nominationText}</strong></Card.Text>
                         <Card.Text>{nomination.Year}</Card.Text>
                     </Card.Body>
                 </Card>
