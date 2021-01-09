@@ -38,7 +38,7 @@ function PageNavigation({setSideBarOpen, nominations}) {
 
                     <Col className="page-navigation-trophy" md={1} sm={2} xs={2}>
 
-                        <Badge count={nominations.length} offset={[3, -3]} onClick={() => setSideBarOpen()}>
+                        <Badge count={nominations.length} onClick={() => setSideBarOpen()} size="small">
                             <FontAwesomeIcon icon={faTrophy} />
                         </Badge>
                     </Col>

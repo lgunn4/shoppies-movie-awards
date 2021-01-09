@@ -1,11 +1,13 @@
 .pageHeader {
     z-index: 2;
+    padding: 0;
 }
 
 .pageHeaderRow{
     color: var(--white);
     padding: 2vh;
     width:100%;
+    height: 8vh;
 }
 
 .pageHeaderRow h2 {
@@ -15,13 +17,21 @@
 }
 .page-navigation-title {
     width: fit-content;
+    padding-left: 2vh;
 }
 
-.fa-trophy, .fa-mouse-pointer {
+.page-navigation-title h2 {
+    font-size: 3vh;
+    margin: 0;
+    display: flex;
+    align-content: center;
+}
+
+.fa-trophy {
     color: var(--white);
     height: 100%;
     vertical-align: middle;
-    font-size: 2rem;
+    font-size: 3vh;
 }
 
 .ant-badge {
@@ -33,12 +43,13 @@
 
 .alert-navbar {
     z-index: 1;
-    margin-top: 5.5rem;
+    margin-top: 8vh;
     padding: 0;
 }
 
 .alert-navbar .alert{
     width: 100%;
+    border-radius: 0;
 }
 
 .fa-trophy:hover {
@@ -59,6 +70,7 @@
     color: var(--white);
     text-align: right;
     margin: 0;
+    font-size: 2vh;
 }
 
 .alert-transition-enter{

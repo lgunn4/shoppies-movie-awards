@@ -6,6 +6,7 @@ import NominationCards from "../../Containers/NominationCards/NominationCards";
 import SearchPageForm from "../../Containers/SearchPageForm/SearchPageForm";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {HEADER_BACKGROUND_IMAGE_URL} from "../../Assets/Constants";
 
 function HomePage({clearSearchResults}){
     useEffect(() => {
@@ -19,7 +20,7 @@ function HomePage({clearSearchResults}){
 
     return(
         <div className="home-page-container">
-            <div className="home-page-title-image" />
+            <div className="home-page-title-image" style={{backgroundImage: `url(${HEADER_BACKGROUND_IMAGE_URL}`}}/>
             <Row className="home-page-title-row">
                 <Col md={12} className="home-page-title-col-text">
                     <h3>Welcome to the Shoppies Movie Awards Official Site!</h3>
