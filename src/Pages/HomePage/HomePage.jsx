@@ -7,6 +7,7 @@ import SearchPageForm from "../../Containers/SearchPageForm/SearchPageForm";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {HEADER_BACKGROUND_IMAGE_URL} from "../../Assets/Constants";
+import {PropTypes} from "prop-types";
 
 function HomePage({clearSearchResults}){
     useEffect(() => {
@@ -51,3 +52,7 @@ function HomePage({clearSearchResults}){
 }
 
 export default HomePage;
+
+HomePage.propTypes = {
+    clearSearchResults: PropTypes.func.isRequired,
+};
