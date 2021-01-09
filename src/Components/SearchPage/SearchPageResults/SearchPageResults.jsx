@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchPagePagination from "../../../Containers/SearchPagePagination/SearchPagePagination";
 import SearchResult from "../../../Containers/SearchResult/SearchResult";
+import {SEARCH_RESULTS_PROP_TYPES} from "../../../Assets/Constants";
 
 
 function SearchPageResults({searchResults}) {
@@ -27,3 +28,7 @@ function SearchPageResults({searchResults}) {
 }
 
 export default SearchPageResults;
+
+SearchPageResults.propTypes = {
+    searchResults: SEARCH_RESULTS_PROP_TYPES.isRequired,
+};

@@ -5,6 +5,8 @@ import {
     CSSTransition,
     TransitionGroup,
 } from 'react-transition-group';
+import {PropTypes} from "prop-types";
+import {NOMINATIONS_PROP_TYPES} from "../../Assets/Constants";
 
 
 function NominationSideBarContent({setSideBarClosed, deleteNomination, nominations}) {
@@ -60,3 +62,9 @@ function NominationSideBarContent({setSideBarClosed, deleteNomination, nominatio
 
 }
 export default NominationSideBarContent;
+
+NominationSideBarContent.propTypes = {
+    setSideBarClosed: PropTypes.func.isRequired,
+    deleteNomination: PropTypes.func.isRequired,
+    nominations: NOMINATIONS_PROP_TYPES.isRequired,
+};

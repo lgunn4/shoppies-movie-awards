@@ -3,6 +3,7 @@ import {Container} from "react-bootstrap";
 import "./Layout.css";
 import PageNavigation from "../../Containers/PageNavigation/PageNavigation";
 import NominationSideBar from "../../Containers/NominationSideBar/NominationSideBar";
+import PropTypes from 'prop-types';
 
 function Layout({children}) {
     return (
@@ -19,3 +20,7 @@ function Layout({children}) {
     )
 }
 export default Layout;
+
+Layout.propTypes = {
+    children: PropTypes.element.isRequired,
+};

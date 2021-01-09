@@ -1,7 +1,7 @@
 import React from "react";
 import {Card, CardDeck} from "react-bootstrap";
 import "./NominationCards.css";
-import {HOME_PAGE_CARD_ROW_SIZE, NOMINATION_TEXT_LENGTH} from "../../Assets/Constants";
+import {HOME_PAGE_CARD_ROW_SIZE, NOMINATION_TEXT_LENGTH, NOMINATIONS_PROP_TYPES} from "../../Assets/Constants";
 
 function NominationCards({nominations}) {
     const nominationCards = nominations.map(nomination => {
@@ -45,3 +45,7 @@ function NominationCards({nominations}) {
     )
 }
 export default NominationCards;
+
+NominationCards.propTypes = {
+    nominations: NOMINATIONS_PROP_TYPES.isRequired
+};

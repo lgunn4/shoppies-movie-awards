@@ -6,7 +6,8 @@ import "./PageNavigation.css";
 import {Badge} from "antd";
 import {Link} from "react-router-dom";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
-
+import {PropTypes} from "prop-types";
+import {NOMINATIONS_PROP_TYPES} from "../../Assets/Constants";
 
 function PageNavigation({setSideBarOpen, nominations}) {
 
@@ -55,3 +56,8 @@ function PageNavigation({setSideBarOpen, nominations}) {
 }
 
 export default PageNavigation;
+
+PageNavigation.propTypes = {
+    setSideBarOpen: PropTypes.func.isRequired,
+    nominations: NOMINATIONS_PROP_TYPES.isRequired,
+};

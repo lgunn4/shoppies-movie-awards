@@ -1,6 +1,7 @@
 import React from 'react';
 import {Spinner} from "react-bootstrap";
 import "./LoadableComponent.css";
+import {PropTypes} from "prop-types";
 
 function LoadableComponent({isLoading, children}) {
     return isLoading ?
@@ -9,3 +10,8 @@ function LoadableComponent({isLoading, children}) {
 }
 
 export default LoadableComponent;
+
+LoadableComponent.propTypes = {
+    isLoading: PropTypes.bool.isRequired,
+    children: PropTypes.element.isRequired,
+};

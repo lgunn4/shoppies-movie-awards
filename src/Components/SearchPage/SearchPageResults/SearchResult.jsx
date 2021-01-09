@@ -1,6 +1,8 @@
 import React from 'react';
 import {Col, Image, Row} from "react-bootstrap";
 import SearchResultButtons from "../SearchResultButtons/SearchResultButtons";
+import {PropTypes} from "prop-types";
+import {NOMINATIONS_PROP_TYPES} from "../../../Assets/Constants";
 
 function SearchResult({movieResult, addNomination, deleteNomination, nominations}) {
     const isNominated = nominations.some(nomination => nomination.imdbID === movieResult.imdbID);
@@ -36,3 +38,16 @@ function SearchResult({movieResult, addNomination, deleteNomination, nominations
 }
 
 export default SearchResult;
+
+SearchResult.propTypes = {
+    movieResult: PropTypes.shape({
+        Title: PropTypes.string,
+        Year: PropTypes.string,
+        imdbID: PropTypes.string,
+        Type: PropTypes.string,
+        Poster: PropTypes.string,
+    }).isRequired,
+    addNomination: PropTypes.func.isRequired,
+    deleteNomination: PropTypes.func.isRequired,
+    nominations: NOMINATIONS_PROP_TYPES.isRequired,
+};
