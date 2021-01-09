@@ -1,10 +1,10 @@
 import React from 'react';
 import "./SearchPagePagination.css";
 import Pagination from "react-js-pagination";
-
+import {PropTypes} from "prop-types";
+import {SEARCH_RESULTS_PROP_TYPES} from "../../../Assets/Constants";
 
 function SearchPagePagination({searchResults, fetchSearchResults}) {
-
     const handlePageClick = (number) => {
         fetchSearchResults(searchResults.searchCriteria, number);
     };
@@ -31,3 +31,8 @@ function SearchPagePagination({searchResults, fetchSearchResults}) {
 }
 
 export default SearchPagePagination;
+
+SearchPagePagination.propTypes = {
+    searchResults: SEARCH_RESULTS_PROP_TYPES.isRequired,
+    fetchSearchResults: PropTypes.func,
+};

@@ -4,6 +4,7 @@ import {Button, Col, Form} from "react-bootstrap";
 import "./SearchForm.css";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {PropTypes} from "prop-types";
 
 function SearchForm({fetchSearchResults, customSubmitFunction}) {
     const [searchText, changeSearchText] = useState("");
@@ -44,3 +45,8 @@ function SearchForm({fetchSearchResults, customSubmitFunction}) {
 }
 
 export default SearchForm;
+
+SearchForm.propTypes = {
+    fetchSearchResults: PropTypes.func.isRequired,
+    customSubmitFunction: PropTypes.func,
+};

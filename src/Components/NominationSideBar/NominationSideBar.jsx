@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from "react-sidebar";
 import NominationSideBarContent from "../../Containers/NominationSideBarContent/NominationSideBarContent";
+import {PropTypes} from "prop-types";
 
 function NominationSideBar({children, sideBarOpen, setSideBarClosed}){
     return(
@@ -17,3 +18,9 @@ function NominationSideBar({children, sideBarOpen, setSideBarClosed}){
 }
 
 export default NominationSideBar;
+
+NominationSideBar.propTypes = {
+    children: PropTypes.element.isRequired,
+    sideBarOpen: PropTypes.bool.isRequired,
+    setSideBarClosed: PropTypes.func.isRequired,
+};
