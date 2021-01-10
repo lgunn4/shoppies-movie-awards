@@ -11,10 +11,7 @@ function SearchForm({ fetchSearchResults, customSubmitFunction }) {
   const onFormSubmit = (e) => {
     e.preventDefault();
     fetchSearchResults(searchText, 1);
-
-    if (customSubmitFunction) {
-      customSubmitFunction();
-    }
+    customSubmitFunction();
   };
 
   return (
@@ -48,5 +45,5 @@ export default SearchForm;
 
 SearchForm.propTypes = {
   fetchSearchResults: PropTypes.func.isRequired,
-  customSubmitFunction: PropTypes.oneOf(PropTypes.func, PropTypes.null).isRequired,
+  customSubmitFunction: PropTypes.func.isRequired,
 };

@@ -7,11 +7,7 @@ function SearchPageResults({ searchResults }) {
   const resultsTitle = searchResults.searchCriteria === null ? null
     : (
       <div>
-        <h3>
-          `Displaying Results for: $
-          {searchResults.searchCriteria}
-          `
-        </h3>
+        <h3>{`Displaying Results for: "${searchResults.searchCriteria}"`}</h3>
         <p>
           {searchResults.totalResults}
           {' '}
