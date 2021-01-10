@@ -32,12 +32,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
+    "lint:fix": "eslint src/**/*.js src/**/*.jsx --fix ."
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "movie-awards",
+      "movie-awards/jest"
     ]
   },
   "browserslist": {
@@ -53,6 +55,12 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "redux-devtools-extension": "^2.13.8"
   }
 }

@@ -1,9 +1,7 @@
-import {connect} from "react-redux";
-import SearchPageResults from "../../Components/SearchPage/SearchPageResults/SearchPageResults";
+import { connect } from 'react-redux';
+import SearchPageResults from '../../Components/SearchPage/SearchPageResults/SearchPageResults';
 
-const mapStateToProps = (state) => {
-    return {
-        searchResults: state.SearchResults,
-    };
-};
+const mapStateToProps = (state) => ({
+  searchResults: state.SearchResults,
+});
 export default connect(mapStateToProps)(SearchPageResults);
