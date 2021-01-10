@@ -4,7 +4,7 @@ import './Layout.css';
 import PropTypes from 'prop-types';
 import PageNavigation from '../../Containers/PageNavigation/PageNavigation';
 import NominationSideBar from '../../Containers/NominationSideBar/NominationSideBar';
-import LoadableComponent from '../../Containers/SearchPageResultsLoadableComponent/SearchPageResultsLoadableComponent';
+import LoadableComponent from '../LoadableComponent/LoadableComponent';
 
 function Layout({ fetchNominations, isLoading, children }) {
   useEffect(() => {
