@@ -8,7 +8,7 @@ function SearchPage() {
   return (
     <div className="search-page">
       <h3>Search For a Movie</h3>
-      <SearchPageForm />
+      <SearchPageForm customSubmitFunction={() => {}} />
       <br />
       <SearchPageResultsLoadableComponent>
         <SearchPageResults />

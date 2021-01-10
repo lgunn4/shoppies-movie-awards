@@ -4,7 +4,7 @@ import './index.css';
 
 import { Provider } from 'react-redux';
 import configureAppStore from './Redux/Store';
-import App from './App';
+import App from './Containers/App/App';
 
 const store = configureAppStore();
 
