@@ -15,8 +15,8 @@ function NominationSideBarContent({ setSideBarClosed, deleteNomination, nominati
     const button = (<Button onClick={() => deleteNomination(nomination.imdbID)} variant="outline-danger">Remove</Button>);
 
     const posterImage = nomination.Poster === 'N/A'
-      ? (<Image src="poster-not-available.jpg" thumbnail />)
-      : (<Image src={nomination.Poster} thumbnail />);
+      ? (<Image src="poster-not-available.jpg" thumbnail alt={`${nomination.imdbID}-poster`} />)
+      : (<Image src={nomination.Poster} thumbnail alt={`${nomination.imdbID}-poster`} />);
 
     return (
       <CSSTransition
