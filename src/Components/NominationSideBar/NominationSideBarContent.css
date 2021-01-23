@@ -5,6 +5,10 @@
 .nomination-side-bar-content h6 {
     text-align: center;
 }
+.nomination-side-bar-content .row {
+    width: 100%;
+}
+
 .item-exit {
     opacity: 1;
 }
