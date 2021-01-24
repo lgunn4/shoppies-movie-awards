@@ -28,8 +28,6 @@ describe('HomePage', () => {
     expect(screen.getByText('Start Searching')).toBeInTheDocument();
     expect(screen.getByText('Current Nominations')).toBeInTheDocument();
     expect(screen.getByText('No movies have been nominated yet...')).toBeInTheDocument();
-
-    screen.debug();
   });
 
   test('renders HomePage component with 5 nominations', async () => {
@@ -67,7 +65,5 @@ describe('HomePage', () => {
     expect(screen.queryAllByText('The Best Movie Ever').length).toEqual(numNominations);
     expect(screen.queryAllByText('2021').length).toEqual(numNominations);
     expect(screen.getAllByRole('img').length).toEqual(numNominations);
-
-    screen.debug();
   });
 });
