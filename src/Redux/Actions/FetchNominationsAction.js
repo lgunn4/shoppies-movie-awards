@@ -1,34 +1,41 @@
+import { getNominationResults } from '../Service/NominationsService';
 import {
   FETCH_NOMINATIONS_ENDED,
   FETCH_NOMINATIONS_FAILED,
   FETCH_NOMINATIONS_STARTED,
   FETCH_NOMINATIONS_SUCCESS,
 } from '../ActionTypes';
-import { getNominationResults } from '../Service/NominationsService';
+
+export const fetchNominationsStartedAction = () => ({
+  type: FETCH_NOMINATIONS_STARTED,
+});
+
+export const fetchNominationsSuccessAction = (nominations) => ({
+  type: FETCH_NOMINATIONS_SUCCESS,
+  payload: nominations,
+});
+
+export const fetchNominationsFailedAction = () => ({
+  type: FETCH_NOMINATIONS_FAILED,
+  payload: {
+    error: FETCH_NOMINATIONS_FAILED,
+  },
+});
+
+export const fetchNominationsEndedAction = () => ({
+  type: FETCH_NOMINATIONS_ENDED,
+});
 
 const fetchNominations = () => (dispatch) => {
-  dispatch({
-    type: FETCH_NOMINATIONS_STARTED,
-  });
+  dispatch(fetchNominationsStartedAction());
   const nominations = getNominationResults();
 
   if (nominations) {
-    dispatch({
-      type: FETCH_NOMINATIONS_SUCCESS,
-      payload: nominations,
-    });
+    dispatch(fetchNominationsSuccessAction(nominations));
   } else {
-    dispatch({
-      type: FETCH_NOMINATIONS_FAILED,
-      payload: {
-        error: FETCH_NOMINATIONS_FAILED,
-      },
-    });
+    dispatch(fetchNominationsFailedAction());
   }
-
-  dispatch({
-    type: FETCH_NOMINATIONS_ENDED,
-  });
+  dispatch(fetchNominationsEndedAction());
 };
 
 export default fetchNominations;

@@ -8,11 +8,13 @@ export const getNominationResults = () => {
   return nominations;
 };
 
-export const deleteAPINomination = (imdbID) => {
-  const nominations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS))
-    .filter((nomination) => nomination.imdbID !== imdbID);
+export const postDeleteNomination = (imdbID) => {
+  if (localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS)) {
+    const nominations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS))
+      .filter((nomination) => nomination.imdbID !== imdbID);
 
-  localStorage.setItem(LOCAL_STORAGE_KEY_NOMINATIONS, JSON.stringify(nominations));
+    localStorage.setItem(LOCAL_STORAGE_KEY_NOMINATIONS, JSON.stringify(nominations));
+  }
 };
 
 export const postNomination = (nomination) => {

@@ -6,31 +6,39 @@ import {
 } from '../ActionTypes';
 import getOMDBResults from '../Service/SearchResultsService';
 
+export const fetchSearchResultsStartedAction = () => ({
+  type: FETCH_SEARCH_RESULTS_STARTED,
+});
+
+export const fetchSearchResultsSuccess = (searchText, pageNumber, response) => ({
+  type: FETCH_SEARCH_RESULTS_SUCCESS,
+  payload: {
+    searchCriteria: searchText,
+    pageNumber,
+    response,
+  },
+});
+
+export const fetchSearchResultsFailed = (searchText, error) => ({
+  type: FETCH_SEARCH_RESULTS_FAILED,
+  payload: {
+    searchCriteria: searchText,
+    error,
+  },
+});
+
+export const fetchSearchResultsEnded = () => ({
+  type: FETCH_SEARCH_RESULTS_ENDED,
+});
+
 const fetchSearchResults = (searchText, pageNumber) => (dispatch) => {
-  dispatch({
-    type: FETCH_SEARCH_RESULTS_STARTED,
-  });
+  dispatch(fetchSearchResultsStartedAction());
   getOMDBResults(searchText, pageNumber).then((response) => {
-    dispatch({
-      type: FETCH_SEARCH_RESULTS_SUCCESS,
-      payload: {
-        searchCriteria: searchText,
-        pageNumber,
-        response,
-      },
-    });
+    dispatch(fetchSearchResultsSuccess(searchText, pageNumber, response));
   }).catch((error) => {
-    dispatch({
-      type: FETCH_SEARCH_RESULTS_FAILED,
-      payload: {
-        searchCriteria: searchText,
-        error,
-      },
-    });
+    dispatch(fetchSearchResultsFailed(searchText, error));
   }).finally(() => {
-    dispatch({
-      type: FETCH_SEARCH_RESULTS_ENDED,
-    });
+    dispatch(fetchSearchResultsEnded());
   });
 };
 

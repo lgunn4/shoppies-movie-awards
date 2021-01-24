@@ -1,52 +1,47 @@
 import {
-  ADD_UI_LOADING_ACTION,
   DELETE_NOMINATIONS_ENDED,
   DELETE_NOMINATIONS_FAILED,
-  DELETE_NOMINATIONS_STARTED,
-  DELETE_NOMINATIONS_SUCCESS,
-  REMOVE_UI_LOADING_ACTION,
+  DELETE_NOMINATIONS_STARTED, DELETE_NOMINATIONS_SUCCESS,
   UI_REMOVE,
 } from '../ActionTypes';
-import { deleteAPINomination, getNominationResults } from '../Service/NominationsService';
+import { getNominationResults, postDeleteNomination } from '../Service/NominationsService';
+import { addUILoadingAction, removeUILoadingAction } from './UIActions';
+
+export const deleteNominationStartedAction = () => ({
+  type: DELETE_NOMINATIONS_STARTED,
+});
+
+export const deleteNominationSuccessAction = (imdbID) => ({
+  type: DELETE_NOMINATIONS_SUCCESS,
+  payload: {
+    imdbID,
+  },
+});
+
+export const deleteNominationFailedAction = () => ({
+  type: DELETE_NOMINATIONS_FAILED,
+  payload: {
+    error: DELETE_NOMINATIONS_FAILED,
+  },
+});
+
+export const deleteNominationEndedAction = () => ({
+  type: DELETE_NOMINATIONS_ENDED,
+});
 
 const deleteNomination = (imdbID) => (dispatch) => {
-  dispatch({
-    type: ADD_UI_LOADING_ACTION,
-    payload: {
-      type: UI_REMOVE,
-      id: imdbID,
-    },
-  });
-  dispatch({
-    type: DELETE_NOMINATIONS_STARTED,
-  });
+  dispatch(addUILoadingAction(UI_REMOVE, imdbID));
+  dispatch(deleteNominationStartedAction());
 
-  deleteAPINomination(imdbID);
+  postDeleteNomination(imdbID);
 
   if (!getNominationResults().some((cacheNomination) => cacheNomination.imdbID === imdbID)) {
-    dispatch({
-      type: DELETE_NOMINATIONS_SUCCESS,
-      payload: {
-        imdbID,
-      },
-    });
-    dispatch({
-      type: REMOVE_UI_LOADING_ACTION,
-      payload: {
-        id: imdbID,
-      },
-    });
+    dispatch(deleteNominationSuccessAction(imdbID));
   } else {
-    dispatch({
-      type: DELETE_NOMINATIONS_FAILED,
-      payload: {
-        error: DELETE_NOMINATIONS_FAILED,
-      },
-    });
+    dispatch(deleteNominationFailedAction());
   }
-  dispatch({
-    type: DELETE_NOMINATIONS_ENDED,
-  });
+  dispatch(deleteNominationEndedAction());
+  dispatch(removeUILoadingAction(imdbID));
 };
 
 export default deleteNomination;
