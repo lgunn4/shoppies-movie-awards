@@ -2,6 +2,9 @@ import { LOCAL_STORAGE_KEY_NOMINATIONS } from '../../../Assets/Constants';
 import { postDeleteNomination, getNominationResults, postNomination } from '../NominationsService';
 
 describe('NominationService', () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
   test('getNominationResults', () => {
     const nominations = [
       {
