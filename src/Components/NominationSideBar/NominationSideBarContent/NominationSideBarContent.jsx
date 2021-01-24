@@ -8,7 +8,7 @@ import {
   TransitionGroup,
 } from 'react-transition-group';
 import { PropTypes } from 'prop-types';
-import { NOMINATIONS_PROP_TYPES } from '../../Assets/Constants';
+import { NOMINATIONS_PROP_TYPES } from '../../../Assets/Constants';
 
 function NominationSideBarContent({ setSideBarClosed, deleteNomination, nominations }) {
   const nominationList = nominations.map((nomination) => {
