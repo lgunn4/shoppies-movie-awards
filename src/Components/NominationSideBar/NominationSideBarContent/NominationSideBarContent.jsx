@@ -8,15 +8,15 @@ import {
   TransitionGroup,
 } from 'react-transition-group';
 import { PropTypes } from 'prop-types';
-import { NOMINATIONS_PROP_TYPES } from '../../Assets/Constants';
+import { NOMINATIONS_PROP_TYPES } from '../../../Assets/Constants';
 
 function NominationSideBarContent({ setSideBarClosed, deleteNomination, nominations }) {
   const nominationList = nominations.map((nomination) => {
     const button = (<Button onClick={() => deleteNomination(nomination.imdbID)} variant="outline-danger">Remove</Button>);
 
     const posterImage = nomination.Poster === 'N/A'
-      ? (<Image src="poster-not-available.jpg" thumbnail />)
-      : (<Image src={nomination.Poster} thumbnail />);
+      ? (<Image src="poster-not-available.jpg" thumbnail alt={`${nomination.imdbID}-poster`} />)
+      : (<Image src={nomination.Poster} thumbnail alt={`${nomination.imdbID}-poster`} />);
 
     return (
       <CSSTransition

@@ -6,7 +6,7 @@ import './ErrorPage.css';
 function ErrorPage() {
   return (
     <div className="error-page">
-      <FontAwesomeIcon icon={faSkullCrossbones} />
+      <FontAwesomeIcon title="skull-cross-bones" icon={faSkullCrossbones} />
       <h4>404</h4>
       <h5>Page Does Not Exist</h5>
     </div>
