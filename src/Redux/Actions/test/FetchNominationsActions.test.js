@@ -1,7 +1,10 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import fetchNominations from '../FetchNominationsAction';
-import { fetchNominationsEndedAction, fetchNominationsStartedAction, fetchNominationsSuccessAction } from '../../Actions';
+import fetchNominations, {
+  fetchNominationsEndedAction,
+  fetchNominationsStartedAction,
+  fetchNominationsSuccessAction,
+} from '../FetchNominationsAction';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

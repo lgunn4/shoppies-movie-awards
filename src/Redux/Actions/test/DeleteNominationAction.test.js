@@ -1,13 +1,13 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import deleteNomination from '../DeleteNominationAction';
-import {
-  addUILoadingAction,
+
+import { UI_REMOVE } from '../../ActionTypes';
+import { addUILoadingAction, removeUILoadingAction } from '../UIActions';
+import deleteNomination, {
   deleteNominationEndedAction,
   deleteNominationStartedAction,
-  deleteNominationSuccessAction, removeUILoadingAction,
-} from '../../Actions';
-import { UI_REMOVE } from '../../ActionTypes';
+  deleteNominationSuccessAction,
+} from '../DeleteNominationAction';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

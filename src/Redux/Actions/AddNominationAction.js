@@ -1,13 +1,32 @@
 import { getNominationResults, postNomination } from '../Service/NominationsService';
 import {
-  addNominationEndedAction,
-  addNominationFailedAction,
-  addNominationStartedAction,
-  addNominationSuccessAction,
-  addUILoadingAction,
-  removeUILoadingAction,
-} from '../Actions';
-import { UI_ADD } from '../ActionTypes';
+  ADD_NOMINATIONS_ENDED,
+  ADD_NOMINATIONS_FAILED,
+  ADD_NOMINATIONS_STARTED,
+  ADD_NOMINATIONS_SUCCESS,
+  UI_ADD,
+} from '../ActionTypes';
+import { addUILoadingAction, removeUILoadingAction } from './UIActions';
+
+export const addNominationStartedAction = () => ({
+  type: ADD_NOMINATIONS_STARTED,
+});
+
+export const addNominationSuccessAction = (nomination) => ({
+  type: ADD_NOMINATIONS_SUCCESS,
+  payload: nomination,
+});
+
+export const addNominationFailedAction = () => ({
+  type: ADD_NOMINATIONS_FAILED,
+  payload: {
+    error: ADD_NOMINATIONS_FAILED,
+  },
+});
+
+export const addNominationEndedAction = () => ({
+  type: ADD_NOMINATIONS_ENDED,
+});
 
 const addNomination = (nomination) => (dispatch) => {
   dispatch(addUILoadingAction(UI_ADD, nomination.imdbID));

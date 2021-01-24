@@ -1,14 +1,13 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import AddNominationAction from '../AddNominationAction';
-import {
+import AddNominationAction, {
   addNominationEndedAction,
   addNominationStartedAction,
   addNominationSuccessAction,
-  addUILoadingAction,
-  removeUILoadingAction,
-} from '../../Actions';
+} from '../AddNominationAction';
+
 import { UI_ADD } from '../../ActionTypes';
+import { addUILoadingAction, removeUILoadingAction } from '../UIActions';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
