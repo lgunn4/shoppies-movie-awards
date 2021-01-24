@@ -24,7 +24,6 @@ describe('HomePage', () => {
     );
 
     expect(screen.getByText('Welcome to the Shoppies Movie Awards Official Site!')).toBeInTheDocument();
-    expect(screen.getByText('Welcome to the Shoppies Movie Awards Official Site!')).toBeInTheDocument();
     expect(screen.getByText('Start Searching')).toBeInTheDocument();
     expect(screen.getByText('Current Nominations')).toBeInTheDocument();
     expect(screen.getByText('No movies have been nominated yet...')).toBeInTheDocument();
@@ -56,7 +55,6 @@ describe('HomePage', () => {
       </Provider>,
     );
 
-    expect(screen.getByText('Welcome to the Shoppies Movie Awards Official Site!')).toBeInTheDocument();
     expect(screen.getByText('Welcome to the Shoppies Movie Awards Official Site!')).toBeInTheDocument();
     expect(screen.getByText('Start Searching')).toBeInTheDocument();
     expect(screen.getByText('Current Nominations')).toBeInTheDocument();
