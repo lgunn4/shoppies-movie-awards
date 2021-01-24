@@ -22,15 +22,15 @@ describe('SearchResultButtons', () => {
       movieResult={movieResult}
     />);
 
-    expect(screen.getByText('Nominated')).toBeInTheDocument;
-    expect(screen.getByText('Remove')).toBeInTheDocument;
+    expect(screen.getByText('Nominated')).toBeInTheDocument();
+    expect(screen.getByText('Remove')).toBeInTheDocument();
 
     const buttons = screen.getAllByRole('button');
 
     expect(buttons).toHaveLength(2);
 
-    expect(buttons[0]).toBeDisabled;
-    expect(buttons[1]).toBeDisabled.not;
+    expect(buttons[0]).toBeDisabled();
+    expect(buttons[1]).not.toBeDisabled();
 
     await userEvent.click(buttons[1]);
 
@@ -45,13 +45,13 @@ describe('SearchResultButtons', () => {
       movieResult={movieResult}
     />);
 
-    expect(screen.getByText('Nominate')).toBeInTheDocument;
+    expect(screen.getByText('Nominate')).toBeInTheDocument();
 
     const buttons = screen.getAllByRole('button');
 
     expect(buttons).toHaveLength(1);
 
-    expect(buttons[0]).toBeDisabled.not;
+    expect(buttons[0]).not.toBeDisabled();
 
     await userEvent.click(buttons[0]);
 

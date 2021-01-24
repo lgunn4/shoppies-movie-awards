@@ -18,9 +18,9 @@ describe('NominationSideBarContent', () => {
     await userEvent.click(screen.getByText('X'));
     expect(setSideBarClosed).toBeCalledTimes(1);
 
-    expect(screen.getByRole('button')).toBeInTheDocument;
-    expect(screen.getByText('Nominations')).toBeInTheDocument;
-    expect(screen.getByText('There are currently 0 nominations')).toBeInTheDocument;
+    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getByText('Nominations')).toBeInTheDocument();
+    expect(screen.getByText('There are currently 0 nominations')).toBeInTheDocument();
   });
 
   test('renders NominationSideBarContent component with nominations', async () => {
@@ -58,8 +58,8 @@ describe('NominationSideBarContent', () => {
       expect(screen.getByAltText(posterAltText)).toBeInTheDocument();
     });
 
-    expect(screen.getByText('X')).toBeInTheDocument;
-    expect(screen.getByText('Nominations')).toBeInTheDocument;
+    expect(screen.getByText('X')).toBeInTheDocument();
+    expect(screen.getByText('Nominations')).toBeInTheDocument();
 
     await userEvent.click(screen.getByText('X'));
     expect(setSideBarClosed).toBeCalledTimes(1);

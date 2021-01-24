@@ -8,7 +8,7 @@ describe('NotificationBar', () => {
       numNominations={0}
     />);
 
-    expect(screen.findByText('You have nominated 4 movies!')).toBeInTheDocument.not;
+    expect(screen.queryByText('You have nominated 4 movies!')).not.toBeInTheDocument();
   });
 
   test('renders NotificationBar component when there are 5 nominations', () => {
@@ -16,7 +16,7 @@ describe('NotificationBar', () => {
       numNominations={5}
     />);
 
-    expect(screen.getByText('You have nominated 5 movies!')).toBeInTheDocument;
+    expect(screen.getByText('You have nominated 5 movies!')).toBeInTheDocument();
   });
 
   test('renders NotificationBar component when there are 6 nominations', () => {
@@ -24,6 +24,6 @@ describe('NotificationBar', () => {
       numNominations={6}
     />);
 
-    expect(screen.getByText('You have nominated 6 movies!')).toBeInTheDocument;
+    expect(screen.getByText('You have nominated 6 movies!')).toBeInTheDocument();
   });
 });

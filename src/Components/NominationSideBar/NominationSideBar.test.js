@@ -30,9 +30,9 @@ describe('NominationSideBar', () => {
         </NominationSideBar>
       </Provider>,
     );
-    expect(screen.getByRole('button')).toBeInTheDocument;
-    expect(screen.getByText('Nominations')).toBeInTheDocument;
-    expect(screen.getByText('There are currently 0 nominations')).toBeInTheDocument;
-    expect(screen.getByText('I AM A CHILD')).toBeInTheDocument;
+    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getByText('Nominations')).toBeInTheDocument();
+    expect(screen.getByText('There are currently 0 nominations')).toBeInTheDocument();
+    expect(screen.getByText('I AM A CHILD')).toBeInTheDocument();
   });
 });

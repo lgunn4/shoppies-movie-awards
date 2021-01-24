@@ -12,7 +12,7 @@ describe('LoadableComponent', () => {
       </LoadableComponent>,
     );
 
-    expect(screen.findByText('I AM A CHILD')).toBeInTheDocument.not;
+    expect(screen.queryByText('I AM A CHILD')).not.toBeInTheDocument();
   });
 
   test('renders LoadableComponent component when loaded', () => {
@@ -24,6 +24,6 @@ describe('LoadableComponent', () => {
       </LoadableComponent>,
     );
 
-    expect(screen.findByText('I AM A CHILD')).toBeInTheDocument;
+    expect(screen.getByText('I AM A CHILD')).toBeInTheDocument();
   });
 });

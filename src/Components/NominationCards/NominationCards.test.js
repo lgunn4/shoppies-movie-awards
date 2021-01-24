@@ -8,9 +8,7 @@ describe('NominationCards', () => {
       nominations={[]}
     />);
 
-    expect(screen.getByText('No movies have been nominated yet...')).toBeInTheDocument;
-
-    screen.debug();
+    expect(screen.getByText('No movies have been nominated yet...')).toBeInTheDocument();
   });
 
   test('renders NominationCards component when there are nominations', () => {
@@ -27,9 +25,9 @@ describe('NominationCards', () => {
       nominations={nominations}
     />);
 
-    expect(screen.findByText('No movies have been nominated yet...')).toBeInTheDocument.not;
+    expect(screen.queryByText('No movies have been nominated yet...')).not.toBeInTheDocument();
 
-    expect(screen.getByText('movie-title-1')).toBeInTheDocument;
-    expect(screen.getByText('2021')).toBeInTheDocument;
+    expect(screen.getByText('movie-title-1')).toBeInTheDocument();
+    expect(screen.getByText('2021')).toBeInTheDocument();
   });
 });

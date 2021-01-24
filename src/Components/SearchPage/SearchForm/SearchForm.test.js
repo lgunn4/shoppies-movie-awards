@@ -13,7 +13,7 @@ describe('SearchForm', () => {
       customSubmitFunction={customSubmitFunction}
     />);
 
-    expect(screen.getByPlaceholderText('Type in a Movie Title')).toBeInTheDocument;
+    expect(screen.getByPlaceholderText('Type in a Movie Title')).toBeInTheDocument();
   });
 
   test('search button press calls input functions', async () => {
