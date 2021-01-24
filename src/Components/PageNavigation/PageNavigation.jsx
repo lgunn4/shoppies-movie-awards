@@ -31,7 +31,7 @@ const PageNavigation = ({ setSideBarOpen, nominations }) => (
         <Col className="page-navigation-trophy" md={1} sm={2} xs={2}>
 
           <Badge count={nominations.length} onClick={() => setSideBarOpen()} size="small">
-            <FontAwesomeIcon icon={faTrophy} />
+            <FontAwesomeIcon icon={faTrophy} title="trophy-icon" />
           </Badge>
         </Col>
       </Row>
