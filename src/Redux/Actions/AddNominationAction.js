@@ -7,9 +7,10 @@ import {
   addUILoadingAction,
   removeUILoadingAction,
 } from '../Actions';
+import { UI_ADD } from '../ActionTypes';
 
 const addNomination = (nomination) => (dispatch) => {
-  dispatch(addUILoadingAction(nomination.imdbID));
+  dispatch(addUILoadingAction(UI_ADD, nomination.imdbID));
   dispatch(addNominationStartedAction());
 
   postNomination(nomination);

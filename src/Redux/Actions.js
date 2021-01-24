@@ -4,14 +4,17 @@ import {
   ADD_NOMINATIONS_STARTED,
   ADD_NOMINATIONS_SUCCESS,
   ADD_UI_LOADING_ACTION,
+  DELETE_NOMINATIONS_ENDED,
+  DELETE_NOMINATIONS_FAILED,
+  DELETE_NOMINATIONS_STARTED,
+  DELETE_NOMINATIONS_SUCCESS,
   REMOVE_UI_LOADING_ACTION,
-  UI_ADD,
 } from './ActionTypes';
 
-export const addUILoadingAction = (imdbID) => ({
+export const addUILoadingAction = (actionType, imdbID) => ({
   type: ADD_UI_LOADING_ACTION,
   payload: {
-    type: UI_ADD,
+    type: actionType,
     imdbID,
   },
 });
@@ -41,4 +44,26 @@ export const addNominationFailedAction = () => ({
 
 export const addNominationEndedAction = () => ({
   type: ADD_NOMINATIONS_ENDED,
+});
+
+export const deleteNominationStartedAction = () => ({
+  type: DELETE_NOMINATIONS_STARTED,
+});
+
+export const deleteNominationSuccessAction = (imdbID) => ({
+  type: DELETE_NOMINATIONS_SUCCESS,
+  payload: {
+    imdbID,
+  },
+});
+
+export const deleteNominationFailedAction = () => ({
+  type: DELETE_NOMINATIONS_FAILED,
+  payload: {
+    error: DELETE_NOMINATIONS_FAILED,
+  },
+});
+
+export const deleteNominationEndedAction = () => ({
+  type: DELETE_NOMINATIONS_ENDED,
 });

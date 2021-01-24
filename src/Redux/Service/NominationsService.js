@@ -9,10 +9,12 @@ export const getNominationResults = () => {
 };
 
 export const postDeleteNomination = (imdbID) => {
-  const nominations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS))
-    .filter((nomination) => nomination.imdbID !== imdbID);
+  if (localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS)) {
+    const nominations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS))
+      .filter((nomination) => nomination.imdbID !== imdbID);
 
-  localStorage.setItem(LOCAL_STORAGE_KEY_NOMINATIONS, JSON.stringify(nominations));
+    localStorage.setItem(LOCAL_STORAGE_KEY_NOMINATIONS, JSON.stringify(nominations));
+  }
 };
 
 export const postNomination = (nomination) => {

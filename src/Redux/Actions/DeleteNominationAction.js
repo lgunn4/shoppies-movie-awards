@@ -1,52 +1,27 @@
 import {
-  ADD_UI_LOADING_ACTION,
-  DELETE_NOMINATIONS_ENDED,
-  DELETE_NOMINATIONS_FAILED,
-  DELETE_NOMINATIONS_STARTED,
-  DELETE_NOMINATIONS_SUCCESS,
-  REMOVE_UI_LOADING_ACTION,
   UI_REMOVE,
 } from '../ActionTypes';
 import { getNominationResults, postDeleteNomination } from '../Service/NominationsService';
+import {
+  addUILoadingAction, deleteNominationEndedAction, deleteNominationFailedAction,
+  deleteNominationStartedAction,
+  deleteNominationSuccessAction,
+  removeUILoadingAction,
+} from '../Actions';
 
 const deleteNomination = (imdbID) => (dispatch) => {
-  dispatch({
-    type: ADD_UI_LOADING_ACTION,
-    payload: {
-      type: UI_REMOVE,
-      id: imdbID,
-    },
-  });
-  dispatch({
-    type: DELETE_NOMINATIONS_STARTED,
-  });
+  dispatch(addUILoadingAction(UI_REMOVE, imdbID));
+  dispatch(deleteNominationStartedAction());
 
   postDeleteNomination(imdbID);
 
   if (!getNominationResults().some((cacheNomination) => cacheNomination.imdbID === imdbID)) {
-    dispatch({
-      type: DELETE_NOMINATIONS_SUCCESS,
-      payload: {
-        imdbID,
-      },
-    });
-    dispatch({
-      type: REMOVE_UI_LOADING_ACTION,
-      payload: {
-        id: imdbID,
-      },
-    });
+    dispatch(deleteNominationSuccessAction(imdbID));
   } else {
-    dispatch({
-      type: DELETE_NOMINATIONS_FAILED,
-      payload: {
-        error: DELETE_NOMINATIONS_FAILED,
-      },
-    });
+    dispatch(deleteNominationFailedAction());
   }
-  dispatch({
-    type: DELETE_NOMINATIONS_ENDED,
-  });
+  dispatch(deleteNominationEndedAction());
+  dispatch(removeUILoadingAction(imdbID));
 };
 
 export default deleteNomination;

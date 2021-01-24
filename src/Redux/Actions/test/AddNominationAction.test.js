@@ -8,6 +8,7 @@ import {
   addUILoadingAction,
   removeUILoadingAction,
 } from '../../Actions';
+import { UI_ADD } from '../../ActionTypes';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -20,7 +21,7 @@ describe('AddNominationAction', () => {
     };
 
     const expectedActions = [
-      addUILoadingAction(nomination.imdbID),
+      addUILoadingAction(UI_ADD, nomination.imdbID),
       addNominationStartedAction(),
       addNominationSuccessAction(nomination),
       addNominationEndedAction(),
