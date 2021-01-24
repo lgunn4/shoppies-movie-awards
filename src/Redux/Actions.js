@@ -8,6 +8,10 @@ import {
   DELETE_NOMINATIONS_FAILED,
   DELETE_NOMINATIONS_STARTED,
   DELETE_NOMINATIONS_SUCCESS,
+  FETCH_NOMINATIONS_ENDED,
+  FETCH_NOMINATIONS_FAILED,
+  FETCH_NOMINATIONS_STARTED,
+  FETCH_NOMINATIONS_SUCCESS,
   REMOVE_UI_LOADING_ACTION,
 } from './ActionTypes';
 
@@ -66,4 +70,24 @@ export const deleteNominationFailedAction = () => ({
 
 export const deleteNominationEndedAction = () => ({
   type: DELETE_NOMINATIONS_ENDED,
+});
+
+export const fetchNominationsStartedAction = () => ({
+  type: FETCH_NOMINATIONS_STARTED,
+});
+
+export const fetchNominationsSuccessAction = (nominations) => ({
+  type: FETCH_NOMINATIONS_SUCCESS,
+  payload: nominations,
+});
+
+export const fetchNominationsFailedAction = () => ({
+  type: FETCH_NOMINATIONS_FAILED,
+  payload: {
+    error: FETCH_NOMINATIONS_FAILED,
+  },
+});
+
+export const fetchNominationsEndedAction = () => ({
+  type: FETCH_NOMINATIONS_ENDED,
 });

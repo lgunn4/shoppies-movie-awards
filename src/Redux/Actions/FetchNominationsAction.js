@@ -1,34 +1,21 @@
-import {
-  FETCH_NOMINATIONS_ENDED,
-  FETCH_NOMINATIONS_FAILED,
-  FETCH_NOMINATIONS_STARTED,
-  FETCH_NOMINATIONS_SUCCESS,
-} from '../ActionTypes';
 import { getNominationResults } from '../Service/NominationsService';
+import {
+  fetchNominationsEndedAction,
+  fetchNominationsFailedAction,
+  fetchNominationsStartedAction,
+  fetchNominationsSuccessAction,
+} from '../Actions';
 
 const fetchNominations = () => (dispatch) => {
-  dispatch({
-    type: FETCH_NOMINATIONS_STARTED,
-  });
+  dispatch(fetchNominationsStartedAction());
   const nominations = getNominationResults();
 
   if (nominations) {
-    dispatch({
-      type: FETCH_NOMINATIONS_SUCCESS,
-      payload: nominations,
-    });
+    dispatch(fetchNominationsSuccessAction(nominations));
   } else {
-    dispatch({
-      type: FETCH_NOMINATIONS_FAILED,
-      payload: {
-        error: FETCH_NOMINATIONS_FAILED,
-      },
-    });
+    dispatch(fetchNominationsFailedAction());
   }
-
-  dispatch({
-    type: FETCH_NOMINATIONS_ENDED,
-  });
+  dispatch(fetchNominationsEndedAction());
 };
 
 export default fetchNominations;
