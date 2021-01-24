@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE_KEY_NOMINATIONS } from '../../../Assets/Constants';
-import { deleteNomination, getNominationResults, postNomination } from '../NominationsService';
+import { postDeleteNomination, getNominationResults, postNomination } from '../NominationsService';
 
 describe('NominationService', () => {
   test('getNominationResults', () => {
@@ -28,7 +28,7 @@ describe('NominationService', () => {
       },
     ];
     localStorage.setItem(LOCAL_STORAGE_KEY_NOMINATIONS, JSON.stringify(nominations));
-    deleteNomination('1111');
+    postDeleteNomination('1111');
 
     expect(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS))).toHaveLength(1);
   });

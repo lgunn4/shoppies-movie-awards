@@ -7,7 +7,7 @@ import {
   REMOVE_UI_LOADING_ACTION,
   UI_REMOVE,
 } from '../ActionTypes';
-import { deleteAPINomination, getNominationResults } from '../Service/NominationsService';
+import { getNominationResults, postDeleteNomination } from '../Service/NominationsService';
 
 const deleteNomination = (imdbID) => (dispatch) => {
   dispatch({
@@ -21,7 +21,7 @@ const deleteNomination = (imdbID) => (dispatch) => {
     type: DELETE_NOMINATIONS_STARTED,
   });
 
-  deleteAPINomination(imdbID);
+  postDeleteNomination(imdbID);
 
   if (!getNominationResults().some((cacheNomination) => cacheNomination.imdbID === imdbID)) {
     dispatch({
