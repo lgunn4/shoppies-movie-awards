@@ -8,7 +8,7 @@ export const getNominationResults = () => {
   return nominations;
 };
 
-export const deleteAPINomination = (imdbID) => {
+export const deleteNomination = (imdbID) => {
   const nominations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NOMINATIONS))
     .filter((nomination) => nomination.imdbID !== imdbID);
 
